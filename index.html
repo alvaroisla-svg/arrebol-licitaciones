@@ -63,9 +63,10 @@ td{padding:9px 11px;vertical-align:top;border-bottom:1px solid #F3F3F1}
 @keyframes pulso{0%,100%{opacity:1}50%{opacity:.4}}
 .badge-nueva{display:inline-block;margin-top:5px;background:#B7560A;color:rgba(255,255,255,.9);border:none;font-size:9px;font-weight:600;padding:3px 9px;border-radius:20px;letter-spacing:.8px;text-transform:uppercase;animation:pulso 1.4s ease-in-out infinite}
 .footer{text-align:center;padding:16px;color:#bbb;font-size:11px}
-.urgentes-wrap{background:#fff;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.08);padding:16px 20px;margin-top:20px;border-left:4px solid #C0392B;max-height:calc(4 * 44px + 44px);overflow-y:auto}
-.urgentes-titulo{font-size:13px;font-weight:700;color:#C0392B;margin-bottom:12px}
-.urg-th{background:#FEF2F2;color:#7F1D1D;padding:7px 10px;text-align:left;font-size:10px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;position:sticky;top:0}
+.urgentes-outer{background:#fff;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.08);margin-top:20px;border-left:4px solid #C0392B;overflow:hidden}
+.urgentes-titulo{font-size:13px;font-weight:700;color:#C0392B;padding:16px 20px 10px;position:sticky;top:0;background:#fff;z-index:3}
+.urgentes-scroll{max-height:calc(4 * 44px + 36px);overflow-y:auto}
+.urg-th{background:#FEF2F2;color:#7F1D1D;padding:7px 10px;text-align:left;font-size:10px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;position:sticky;top:0;z-index:2}
 .urgentes-wrap tbody td{padding:8px 10px;border-bottom:1px solid #FEE2E2;font-size:12px;vertical-align:top}
 .urgentes-wrap tbody tr:last-child td{border-bottom:none}
 @keyframes parpadeo{0%,100%{opacity:1}50%{opacity:.15}}
@@ -76,14 +77,14 @@ td{padding:9px 11px;vertical-align:top;border-bottom:1px solid #F3F3F1}
 <div class="header">
   <div class="brand">Arrebol Ingeniería y Gestión del Agua SpA</div>
   <h1>Monitor de Licitaciones — Mercado Público</h1>
-  <p>Generado el 22/05/2026 a las 10:13
-     &nbsp;·&nbsp; Acumulado: 209 licitaciones vigentes
-     &nbsp;·&nbsp; <span class="nuevas-badge">8 nuevas hoy</span></p>
+  <p>Generado el 22/05/2026 a las 10:17
+     &nbsp;·&nbsp; Acumulado: 210 licitaciones vigentes
+     &nbsp;·&nbsp; <span class="nuevas-badge">9 nuevas hoy</span></p>
 </div>
 <div class="container">
   <div class="kpi-row">
-    <div class="kpi-total"><div class="kpi-number">209</div><div class="kpi-label">Total acumulado</div></div>
-    <div class="kpi-nueva"><div class="kpi-number">8</div><div class="kpi-label">Nuevas hoy</div></div>
+    <div class="kpi-total"><div class="kpi-number">210</div><div class="kpi-label">Total acumulado</div></div>
+    <div class="kpi-nueva"><div class="kpi-number">9</div><div class="kpi-label">Nuevas hoy</div></div>
     <div class="kpi-card"><div class="kpi-number" style="color:#0F2942">11</div><div class="kpi-label">DGA</div></div><div class="kpi-card"><div class="kpi-number" style="color:#0F2942">27</div><div class="kpi-label">DOH</div></div><div class="kpi-card"><div class="kpi-number" style="color:#0F2942">2</div><div class="kpi-label">CNR</div></div><div class="kpi-card"><div class="kpi-number" style="color:#0F2942">25</div><div class="kpi-label">CONADI</div></div><div class="kpi-card"><div class="kpi-number" style="color:#0F2942">10</div><div class="kpi-label">INDAP</div></div>
   </div>
   <div class="filtros">
@@ -112,7 +113,7 @@ td{padding:9px 11px;vertical-align:top;border-bottom:1px solid #F3F3F1}
     <button class="btn-limpiar" onclick="limpiar()">✕ Limpiar</button>
   </div>
   <div class="tabla-wrap">
-    <div class="count-bar">Mostrando <span id="cv">209</span> de 209 licitaciones</div>
+    <div class="count-bar">Mostrando <span id="cv">210</span> de 210 licitaciones</div>
     <table id="tbl">
       <thead><tr>
         <th onclick="sort(0)">Código</th>
@@ -136,7 +137,7 @@ td{padding:9px 11px;vertical-align:top;border-bottom:1px solid #F3F3F1}
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">150.000.000 CLP</td>
-          <td class="col-fecha">24</td>
+          <td class="col-fecha">🟢 24</td>
           <td class="col-fecha">2026-05-22</td>
           <td class="col-fecha">2026-06-15</td>
           <td><span class="tag-org">CONADI</span><span class="tag-pk">agua</span><span class="tag-pk">derecho de agua</span></td>
@@ -151,7 +152,7 @@ de la comuna de Los Ángeles: Cementerio Santa fe y Millantú.
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">35.000.000 CLP</td>
-          <td class="col-fecha">21</td>
+          <td class="col-fecha">🟢 21</td>
           <td class="col-fecha">2026-05-22</td>
           <td class="col-fecha">2026-06-12</td>
           <td><span class="tag-pk">agua</span><span class="tag-pk">río</span></td>
@@ -164,7 +165,7 @@ de la comuna de Los Ángeles: Cementerio Santa fe y Millantú.
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">14</td>
+          <td class="col-fecha">🟢 14</td>
           <td class="col-fecha">2026-05-22</td>
           <td class="col-fecha">2026-06-05</td>
           <td><span class="tag-pk">río</span></td>
@@ -179,7 +180,7 @@ CALIDAD AMBIE…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">11</td>
+          <td class="col-fecha">🟢 11</td>
           <td class="col-fecha">2026-05-22</td>
           <td class="col-fecha">2026-06-02</td>
           <td><span class="tag-pk">agua</span></td>
@@ -192,7 +193,7 @@ CALIDAD AMBIE…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">10.000.000 CLP</td>
-          <td class="col-fecha">10</td>
+          <td class="col-fecha">🟡 10</td>
           <td class="col-fecha">2026-05-22</td>
           <td class="col-fecha">2026-06-01</td>
           <td><span class="tag-pk">río</span></td>
@@ -205,7 +206,7 @@ CALIDAD AMBIE…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">11</td>
+          <td class="col-fecha">🟢 11</td>
           <td class="col-fecha">2026-05-22</td>
           <td class="col-fecha">2026-06-02</td>
           <td><span class="tag-pk">río</span></td>
@@ -218,7 +219,7 @@ CALIDAD AMBIE…</div></td>
           <td class="col-tipo">Pública < 100 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">1.350.000 CLP</td>
-          <td class="col-fecha">11</td>
+          <td class="col-fecha">🟢 11</td>
           <td class="col-fecha">2026-05-22</td>
           <td class="col-fecha">2026-06-02</td>
           <td><span class="tag-pk">agua</span></td>
@@ -232,9 +233,22 @@ normas que regirán la licitación pública denominada “Traslado…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">17</td>
+          <td class="col-fecha">🟢 17</td>
           <td class="col-fecha">2026-05-22</td>
           <td class="col-fecha">2026-06-08</td>
+          <td><span class="tag-pk">río</span></td>
+        </tr>
+        <tr class="dr" data-estado="Publicada" data-txt="medicamentos gastrointestinales respiratorios y a i municipalidad de la cisterna 2766-83-l126 región metropolitana de santiago" data-palabras="río" data-nueva="Sí" data-origen="palabra_clave" data-pubpriv="Pública">
+          <td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=2766-83-L126" target="_blank" class="cod-link">2766-83-L126</a><div class="badge-nueva">NUEVA</div></td>
+          <td class="col-nom">MEDICAMENTOS GASTROINTESTINALES RESPIRATORIOS Y A<div class="desc">Proveer de medicamentos destinados a la Farmacia Municipal de la comuna de La Cisterna para garantizar la disponibilidad oportuna de tratamientos farm…</div></td>
+          <td>I MUNICIPALIDAD DE LA CISTERNA<div class="region">Región Metropolitana de Santiago</div></td>
+          <td><span class="badge badge-pub">Publicada</span></td>
+          <td class="col-tipo">Pública < 100 UTM</td>
+          <td><span class="badge badge-pub">Pública</span></td>
+          <td class="col-monto">7.006.500 CLP</td>
+          <td class="col-fecha">🟡 7</td>
+          <td class="col-fecha">2026-05-22</td>
+          <td class="col-fecha">2026-05-29</td>
           <td><span class="tag-pk">río</span></td>
         </tr>
         <tr class="dr" data-estado="Publicada" data-txt="servicios profesionales para la elaboración y tramitación de planes de manejo de bosque nativo en predios de pequeños, medianos y otros propietarios en las provincias de cachapoal, colchagua, corp nacional forestal 1035-9-l126 región del libertador general bernardo o´higgins" data-palabras="agua, río" data-nueva="No" data-origen="palabra_clave" data-pubpriv="Pública">
@@ -245,7 +259,7 @@ normas que regirán la licitación pública denominada “Traslado…</div></td>
           <td class="col-tipo">Pública < 100 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">3.455.508 CLP</td>
-          <td class="col-fecha">6</td>
+          <td class="col-fecha">🔴 6</td>
           <td class="col-fecha">2026-05-20</td>
           <td class="col-fecha">2026-05-27</td>
           <td><span class="tag-pk">agua</span><span class="tag-pk">río</span></td>
@@ -258,7 +272,7 @@ normas que regirán la licitación pública denominada “Traslado…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">14</td>
+          <td class="col-fecha">🟢 14</td>
           <td class="col-fecha">2026-05-20</td>
           <td class="col-fecha">2026-06-04</td>
           <td><span class="tag-pk">asesoría</span></td>
@@ -271,7 +285,7 @@ normas que regirán la licitación pública denominada “Traslado…</div></td>
           <td class="col-tipo">Pública < 100 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">6.900.000 CLP</td>
-          <td class="col-fecha">5</td>
+          <td class="col-fecha">🔴 5</td>
           <td class="col-fecha">2026-05-20</td>
           <td class="col-fecha">2026-05-26</td>
           <td><span class="tag-pk">agua</span></td>
@@ -284,7 +298,7 @@ normas que regirán la licitación pública denominada “Traslado…</div></td>
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">91.300.000 CLP</td>
-          <td class="col-fecha">19</td>
+          <td class="col-fecha">🟢 19</td>
           <td class="col-fecha">2026-05-20</td>
           <td class="col-fecha">2026-06-09</td>
           <td><span class="tag-pk">hidr</span></td>
@@ -297,7 +311,7 @@ normas que regirán la licitación pública denominada “Traslado…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">64.208.960 CLP</td>
-          <td class="col-fecha">11</td>
+          <td class="col-fecha">🟡 11</td>
           <td class="col-fecha">2026-05-20</td>
           <td class="col-fecha">2026-06-01</td>
           <td><span class="tag-pk">agua</span></td>
@@ -310,7 +324,7 @@ normas que regirán la licitación pública denominada “Traslado…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">36.000.000 CLP</td>
-          <td class="col-fecha">21</td>
+          <td class="col-fecha">🟢 21</td>
           <td class="col-fecha">2026-05-20</td>
           <td class="col-fecha">2026-06-11</td>
           <td><span class="tag-pk">agua</span></td>
@@ -323,7 +337,7 @@ normas que regirán la licitación pública denominada “Traslado…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">20.000.000 CLP</td>
-          <td class="col-fecha">12</td>
+          <td class="col-fecha">🟢 12</td>
           <td class="col-fecha">2026-05-20</td>
           <td class="col-fecha">2026-06-02</td>
           <td><span class="tag-pk">agua</span></td>
@@ -336,7 +350,7 @@ normas que regirán la licitación pública denominada “Traslado…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">10.000.000 CLP</td>
-          <td class="col-fecha">12</td>
+          <td class="col-fecha">🟢 12</td>
           <td class="col-fecha">2026-05-20</td>
           <td class="col-fecha">2026-06-02</td>
           <td><span class="tag-pk">agua</span><span class="tag-pk">estero</span></td>
@@ -349,7 +363,7 @@ normas que regirán la licitación pública denominada “Traslado…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">14</td>
+          <td class="col-fecha">🟢 14</td>
           <td class="col-fecha">2026-05-20</td>
           <td class="col-fecha">2026-06-04</td>
           <td><span class="tag-pk">asesoría</span><span class="tag-pk">río</span></td>
@@ -363,7 +377,7 @@ través de proyecto It24i0001 para la Universidad de Los Lagos</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">9.080.000 CLP</td>
-          <td class="col-fecha">11</td>
+          <td class="col-fecha">🟡 11</td>
           <td class="col-fecha">2026-05-20</td>
           <td class="col-fecha">2026-06-01</td>
           <td><span class="tag-pk">agua</span></td>
@@ -376,7 +390,7 @@ través de proyecto It24i0001 para la Universidad de Los Lagos</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">14</td>
+          <td class="col-fecha">🟢 14</td>
           <td class="col-fecha">2026-05-20</td>
           <td class="col-fecha">2026-06-04</td>
           <td><span class="tag-pk">agua</span></td>
@@ -389,7 +403,7 @@ través de proyecto It24i0001 para la Universidad de Los Lagos</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">19</td>
+          <td class="col-fecha">🟢 19</td>
           <td class="col-fecha">2026-05-20</td>
           <td class="col-fecha">2026-06-09</td>
           <td><span class="tag-pk">agua</span><span class="tag-pk">río</span></td>
@@ -402,7 +416,7 @@ través de proyecto It24i0001 para la Universidad de Los Lagos</div></td>
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">21</td>
+          <td class="col-fecha">🟢 21</td>
           <td class="col-fecha">2026-05-20</td>
           <td class="col-fecha">2026-06-11</td>
           <td><span class="tag-org">CONADI</span><span class="tag-pk">riego</span><span class="tag-pk">drenaje</span></td>
@@ -415,7 +429,7 @@ través de proyecto It24i0001 para la Universidad de Los Lagos</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">11</td>
+          <td class="col-fecha">🟡 11</td>
           <td class="col-fecha">2026-05-20</td>
           <td class="col-fecha">2026-06-01</td>
           <td><span class="tag-pk">agua</span></td>
@@ -428,7 +442,7 @@ través de proyecto It24i0001 para la Universidad de Los Lagos</div></td>
           <td class="col-tipo">O1</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">20</td>
+          <td class="col-fecha">🟢 20</td>
           <td class="col-fecha">2026-05-20</td>
           <td class="col-fecha">2026-06-10</td>
           <td><span class="tag-org">DOH</span></td>
@@ -441,7 +455,7 @@ través de proyecto It24i0001 para la Universidad de Los Lagos</div></td>
           <td class="col-tipo">O1</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">15</td>
+          <td class="col-fecha">🟢 15</td>
           <td class="col-fecha">2026-05-20</td>
           <td class="col-fecha">2026-06-05</td>
           <td><span class="tag-org">DOH</span></td>
@@ -454,7 +468,7 @@ través de proyecto It24i0001 para la Universidad de Los Lagos</div></td>
           <td class="col-tipo">O1</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">18</td>
+          <td class="col-fecha">🟢 18</td>
           <td class="col-fecha">2026-05-20</td>
           <td class="col-fecha">2026-06-08</td>
           <td><span class="tag-org">DOH</span><span class="tag-pk">río</span><span class="tag-pk">cuenca</span></td>
@@ -467,7 +481,7 @@ través de proyecto It24i0001 para la Universidad de Los Lagos</div></td>
           <td class="col-tipo">O1</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">21</td>
+          <td class="col-fecha">🟢 21</td>
           <td class="col-fecha">2026-05-20</td>
           <td class="col-fecha">2026-06-11</td>
           <td><span class="tag-org">DOH</span><span class="tag-pk">río</span></td>
@@ -480,7 +494,7 @@ través de proyecto It24i0001 para la Universidad de Los Lagos</div></td>
           <td class="col-tipo">O1</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">15</td>
+          <td class="col-fecha">🟢 15</td>
           <td class="col-fecha">2026-05-20</td>
           <td class="col-fecha">2026-06-05</td>
           <td><span class="tag-org">DOH</span><span class="tag-pk">río</span><span class="tag-pk">cauce</span></td>
@@ -493,7 +507,7 @@ través de proyecto It24i0001 para la Universidad de Los Lagos</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">11</td>
+          <td class="col-fecha">🟡 11</td>
           <td class="col-fecha">2026-05-20</td>
           <td class="col-fecha">2026-06-01</td>
           <td><span class="tag-org">CNR</span><span class="tag-pk">consultoría</span></td>
@@ -507,7 +521,7 @@ través de proyecto It24i0001 para la Universidad de Los Lagos</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">11</td>
+          <td class="col-fecha">🟡 11</td>
           <td class="col-fecha">2026-05-20</td>
           <td class="col-fecha">2026-06-01</td>
           <td><span class="tag-org">CONADI</span></td>
@@ -520,7 +534,7 @@ través de proyecto It24i0001 para la Universidad de Los Lagos</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">12</td>
+          <td class="col-fecha">🟢 12</td>
           <td class="col-fecha">2026-05-20</td>
           <td class="col-fecha">2026-06-02</td>
           <td><span class="tag-org">INDAP</span></td>
@@ -533,7 +547,7 @@ través de proyecto It24i0001 para la Universidad de Los Lagos</div></td>
           <td class="col-tipo">Pública > 5.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">615.600.000 CLP</td>
-          <td class="col-fecha">30</td>
+          <td class="col-fecha">🟢 30</td>
           <td class="col-fecha">2026-05-19</td>
           <td class="col-fecha">2026-06-19</td>
           <td><span class="tag-pk">agua</span></td>
@@ -546,7 +560,7 @@ través de proyecto It24i0001 para la Universidad de Los Lagos</div></td>
           <td class="col-tipo">Pública < 100 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">7.000.000 CLP</td>
-          <td class="col-fecha">9</td>
+          <td class="col-fecha">🟡 9</td>
           <td class="col-fecha">2026-05-19</td>
           <td class="col-fecha">2026-05-29</td>
           <td><span class="tag-pk">estudio</span><span class="tag-pk">asesoría</span></td>
@@ -559,7 +573,7 @@ través de proyecto It24i0001 para la Universidad de Los Lagos</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">9.000.000 CLP</td>
-          <td class="col-fecha">13</td>
+          <td class="col-fecha">🟢 13</td>
           <td class="col-fecha">2026-05-19</td>
           <td class="col-fecha">2026-06-02</td>
           <td><span class="tag-pk">agua</span></td>
@@ -572,7 +586,7 @@ través de proyecto It24i0001 para la Universidad de Los Lagos</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">12.000.000 CLP</td>
-          <td class="col-fecha">13</td>
+          <td class="col-fecha">🟢 13</td>
           <td class="col-fecha">2026-05-19</td>
           <td class="col-fecha">2026-06-02</td>
           <td><span class="tag-pk">agua</span><span class="tag-pk">hidr</span><span class="tag-pk">río</span></td>
@@ -585,7 +599,7 @@ través de proyecto It24i0001 para la Universidad de Los Lagos</div></td>
           <td class="col-tipo">Pública < 100 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">3.570.000 CLP</td>
-          <td class="col-fecha">14</td>
+          <td class="col-fecha">🟢 14</td>
           <td class="col-fecha">2026-05-19</td>
           <td class="col-fecha">2026-06-03</td>
           <td><span class="tag-pk">agua</span></td>
@@ -600,7 +614,7 @@ POR LA DELEGACION PRESIDENCIAL PROVINCIAL DE CHOAPA QUE TRASLADA …</div></td>
           <td class="col-tipo">Privada 1.000–2.000 UTM</td>
           <td><span class="badge badge-priv">Privada</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">9</td>
+          <td class="col-fecha">🟡 9</td>
           <td class="col-fecha">2026-05-19</td>
           <td class="col-fecha">2026-05-29</td>
           <td><span class="tag-pk">agua</span><span class="tag-pk">río</span></td>
@@ -613,7 +627,7 @@ POR LA DELEGACION PRESIDENCIAL PROVINCIAL DE CHOAPA QUE TRASLADA …</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">34.950.000 CLP</td>
-          <td class="col-fecha">12</td>
+          <td class="col-fecha">🟡 12</td>
           <td class="col-fecha">2026-05-19</td>
           <td class="col-fecha">2026-06-01</td>
           <td><span class="tag-pk">asesoría</span></td>
@@ -626,7 +640,7 @@ POR LA DELEGACION PRESIDENCIAL PROVINCIAL DE CHOAPA QUE TRASLADA …</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">21</td>
+          <td class="col-fecha">🟢 21</td>
           <td class="col-fecha">2026-05-19</td>
           <td class="col-fecha">2026-06-10</td>
           <td><span class="tag-pk">agua</span><span class="tag-pk">río</span></td>
@@ -639,7 +653,7 @@ POR LA DELEGACION PRESIDENCIAL PROVINCIAL DE CHOAPA QUE TRASLADA …</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">20</td>
+          <td class="col-fecha">🟢 20</td>
           <td class="col-fecha">2026-05-19</td>
           <td class="col-fecha">2026-06-09</td>
           <td><span class="tag-org">DGA</span><span class="tag-pk">agua</span></td>
@@ -652,7 +666,7 @@ POR LA DELEGACION PRESIDENCIAL PROVINCIAL DE CHOAPA QUE TRASLADA …</div></td>
           <td class="col-tipo">Privada 1.000–2.000 UTM</td>
           <td><span class="badge badge-priv">Privada</span></td>
           <td class="col-monto">85.000.000 CLP</td>
-          <td class="col-fecha">19</td>
+          <td class="col-fecha">🟢 19</td>
           <td class="col-fecha">2026-05-19</td>
           <td class="col-fecha">2026-06-08</td>
           <td><span class="tag-org">DGA</span></td>
@@ -665,7 +679,7 @@ POR LA DELEGACION PRESIDENCIAL PROVINCIAL DE CHOAPA QUE TRASLADA …</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">35.000.000 CLP</td>
-          <td class="col-fecha">12</td>
+          <td class="col-fecha">🟡 12</td>
           <td class="col-fecha">2026-05-19</td>
           <td class="col-fecha">2026-06-01</td>
           <td><span class="tag-org">CONADI</span><span class="tag-pk">asesoría</span><span class="tag-pk">río</span></td>
@@ -678,7 +692,7 @@ POR LA DELEGACION PRESIDENCIAL PROVINCIAL DE CHOAPA QUE TRASLADA …</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">15.600.000 CLP</td>
-          <td class="col-fecha">9</td>
+          <td class="col-fecha">🟡 9</td>
           <td class="col-fecha">2026-05-19</td>
           <td class="col-fecha">2026-05-29</td>
           <td><span class="tag-org">SUBSE-AGRI</span></td>
@@ -691,7 +705,7 @@ POR LA DELEGACION PRESIDENCIAL PROVINCIAL DE CHOAPA QUE TRASLADA …</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">16.800.000 CLP</td>
-          <td class="col-fecha">8</td>
+          <td class="col-fecha">🟡 8</td>
           <td class="col-fecha">2026-05-18</td>
           <td class="col-fecha">2026-05-28</td>
           <td><span class="tag-pk">asesoría</span></td>
@@ -704,7 +718,7 @@ POR LA DELEGACION PRESIDENCIAL PROVINCIAL DE CHOAPA QUE TRASLADA …</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">11.200.000 CLP</td>
-          <td class="col-fecha">8</td>
+          <td class="col-fecha">🟡 8</td>
           <td class="col-fecha">2026-05-18</td>
           <td class="col-fecha">2026-05-28</td>
           <td><span class="tag-pk">asesoría</span></td>
@@ -717,7 +731,7 @@ POR LA DELEGACION PRESIDENCIAL PROVINCIAL DE CHOAPA QUE TRASLADA …</div></td>
           <td class="col-tipo">O1</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">28</td>
+          <td class="col-fecha">🟢 28</td>
           <td class="col-fecha">2026-05-18</td>
           <td class="col-fecha">2026-06-17</td>
           <td><span class="tag-pk">asesoría</span><span class="tag-pk">río</span></td>
@@ -730,7 +744,7 @@ POR LA DELEGACION PRESIDENCIAL PROVINCIAL DE CHOAPA QUE TRASLADA …</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">9</td>
+          <td class="col-fecha">🟡 9</td>
           <td class="col-fecha">2026-05-18</td>
           <td class="col-fecha">2026-05-29</td>
           <td><span class="tag-pk">agua</span></td>
@@ -744,7 +758,7 @@ Se …</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">52.233.000 CLP</td>
-          <td class="col-fecha">14</td>
+          <td class="col-fecha">🟢 14</td>
           <td class="col-fecha">2026-05-18</td>
           <td class="col-fecha">2026-06-03</td>
           <td><span class="tag-pk">asesoría</span></td>
@@ -757,7 +771,7 @@ Se …</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">9.000.000 CLP</td>
-          <td class="col-fecha">8</td>
+          <td class="col-fecha">🟡 8</td>
           <td class="col-fecha">2026-05-18</td>
           <td class="col-fecha">2026-05-28</td>
           <td><span class="tag-pk">asesoría</span></td>
@@ -770,7 +784,7 @@ Se …</div></td>
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">167.074.845 CLP</td>
-          <td class="col-fecha">28</td>
+          <td class="col-fecha">🟢 28</td>
           <td class="col-fecha">2026-05-18</td>
           <td class="col-fecha">2026-06-17</td>
           <td><span class="tag-pk">hidr</span></td>
@@ -783,7 +797,7 @@ Se …</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">15.000.000 CLP</td>
-          <td class="col-fecha">8</td>
+          <td class="col-fecha">🟡 8</td>
           <td class="col-fecha">2026-05-18</td>
           <td class="col-fecha">2026-05-28</td>
           <td><span class="tag-pk">hidr</span></td>
@@ -796,7 +810,7 @@ Se …</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">15.000.000 CLP</td>
-          <td class="col-fecha">8</td>
+          <td class="col-fecha">🟡 8</td>
           <td class="col-fecha">2026-05-18</td>
           <td class="col-fecha">2026-05-28</td>
           <td><span class="tag-pk">agua</span></td>
@@ -809,7 +823,7 @@ Se …</div></td>
           <td class="col-tipo">Pública < 100 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">5.000.000 CLP</td>
-          <td class="col-fecha">5</td>
+          <td class="col-fecha">🔴 5</td>
           <td class="col-fecha">2026-05-18</td>
           <td class="col-fecha">2026-05-25</td>
           <td><span class="tag-pk">hidr</span></td>
@@ -822,7 +836,7 @@ Se …</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">22.000.000 CLP</td>
-          <td class="col-fecha">8</td>
+          <td class="col-fecha">🟡 8</td>
           <td class="col-fecha">2026-05-18</td>
           <td class="col-fecha">2026-05-28</td>
           <td><span class="tag-pk">estudio</span><span class="tag-pk">río</span></td>
@@ -835,7 +849,7 @@ Se …</div></td>
           <td class="col-tipo">O1</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">28</td>
+          <td class="col-fecha">🟢 28</td>
           <td class="col-fecha">2026-05-18</td>
           <td class="col-fecha">2026-06-17</td>
           <td><span class="tag-pk">asesoría</span><span class="tag-pk">río</span></td>
@@ -848,7 +862,7 @@ Se …</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">34.800 USD</td>
-          <td class="col-fecha">12</td>
+          <td class="col-fecha">🟡 12</td>
           <td class="col-fecha">2026-05-18</td>
           <td class="col-fecha">2026-06-01</td>
           <td><span class="tag-pk">hidr</span></td>
@@ -861,7 +875,7 @@ Se …</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">40.756.303 CLP</td>
-          <td class="col-fecha">19</td>
+          <td class="col-fecha">🟢 19</td>
           <td class="col-fecha">2026-05-18</td>
           <td class="col-fecha">2026-06-08</td>
           <td><span class="tag-org">DGA</span><span class="tag-pk">agua</span><span class="tag-pk">río</span></td>
@@ -874,7 +888,7 @@ Se …</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">53.840.779 CLP</td>
-          <td class="col-fecha">8</td>
+          <td class="col-fecha">🟡 8</td>
           <td class="col-fecha">2026-05-18</td>
           <td class="col-fecha">2026-05-28</td>
           <td><span class="tag-org">CNR</span><span class="tag-pk">riego</span><span class="tag-pk">río</span></td>
@@ -887,7 +901,7 @@ Se …</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">40.000.000 CLP</td>
-          <td class="col-fecha">7</td>
+          <td class="col-fecha">🔴 7</td>
           <td class="col-fecha">2026-05-18</td>
           <td class="col-fecha">2026-05-27</td>
           <td><span class="tag-org">CONADI</span></td>
@@ -900,7 +914,7 @@ Se …</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">50.000.000 CLP</td>
-          <td class="col-fecha">12</td>
+          <td class="col-fecha">🟡 12</td>
           <td class="col-fecha">2026-05-18</td>
           <td class="col-fecha">2026-06-01</td>
           <td><span class="tag-org">CONADI</span></td>
@@ -913,7 +927,7 @@ Se …</div></td>
           <td class="col-tipo">Pública < 100 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">1.500.000 CLP</td>
-          <td class="col-fecha">2</td>
+          <td class="col-fecha">🔴 2</td>
           <td class="col-fecha">2026-05-15</td>
           <td class="col-fecha">2026-05-22</td>
           <td><span class="tag-pk">agua</span><span class="tag-pk">río</span></td>
@@ -926,7 +940,7 @@ Se …</div></td>
           <td class="col-tipo">Pública < 100 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">2.500.000 CLP</td>
-          <td class="col-fecha">5</td>
+          <td class="col-fecha">🔴 5</td>
           <td class="col-fecha">2026-05-15</td>
           <td class="col-fecha">2026-05-25</td>
           <td><span class="tag-pk">agua</span></td>
@@ -939,7 +953,7 @@ Se …</div></td>
           <td class="col-tipo">Pública < 100 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">6.600.000 CLP</td>
-          <td class="col-fecha">5</td>
+          <td class="col-fecha">🔴 5</td>
           <td class="col-fecha">2026-05-15</td>
           <td class="col-fecha">2026-05-25</td>
           <td><span class="tag-pk">agua</span></td>
@@ -952,7 +966,7 @@ Se …</div></td>
           <td class="col-tipo">Pública > 5.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">2.363.082.214 CLP</td>
-          <td class="col-fecha">26</td>
+          <td class="col-fecha">🟢 26</td>
           <td class="col-fecha">2026-05-15</td>
           <td class="col-fecha">2026-06-15</td>
           <td><span class="tag-pk">agua</span></td>
@@ -965,7 +979,7 @@ Se …</div></td>
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">300.600.000 CLP</td>
-          <td class="col-fecha">16</td>
+          <td class="col-fecha">🟢 16</td>
           <td class="col-fecha">2026-05-15</td>
           <td class="col-fecha">2026-06-05</td>
           <td><span class="tag-pk">agua</span><span class="tag-pk">río</span></td>
@@ -980,7 +994,7 @@ EL MARCO DEL PLAN DE ACC…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">6</td>
+          <td class="col-fecha">🔴 6</td>
           <td class="col-fecha">2026-05-15</td>
           <td class="col-fecha">2026-05-26</td>
           <td><span class="tag-pk">asesoría</span><span class="tag-pk">cambio climático</span><span class="tag-pk">clim</span></td>
@@ -993,7 +1007,7 @@ EL MARCO DEL PLAN DE ACC…</div></td>
           <td class="col-tipo">Privada 100–1.000 UTM</td>
           <td><span class="badge badge-priv">Privada</span></td>
           <td class="col-monto">16.324.000 CLP</td>
-          <td class="col-fecha">8</td>
+          <td class="col-fecha">🟡 8</td>
           <td class="col-fecha">2026-05-15</td>
           <td class="col-fecha">2026-05-28</td>
           <td><span class="tag-pk">agua</span><span class="tag-pk">río</span></td>
@@ -1006,7 +1020,7 @@ EL MARCO DEL PLAN DE ACC…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">27.990.000 CLP</td>
-          <td class="col-fecha">5</td>
+          <td class="col-fecha">🔴 5</td>
           <td class="col-fecha">2026-05-15</td>
           <td class="col-fecha">2026-05-25</td>
           <td><span class="tag-org">INDAP</span><span class="tag-pk">riego</span></td>
@@ -1019,7 +1033,7 @@ EL MARCO DEL PLAN DE ACC…</div></td>
           <td class="col-tipo">Pública > 5.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">756.433.568 CLP</td>
-          <td class="col-fecha">26</td>
+          <td class="col-fecha">🟢 26</td>
           <td class="col-fecha">2026-05-15</td>
           <td class="col-fecha">2026-06-15</td>
           <td><span class="tag-pk">agua</span></td>
@@ -1032,7 +1046,7 @@ EL MARCO DEL PLAN DE ACC…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">8.000.000 CLP</td>
-          <td class="col-fecha">8</td>
+          <td class="col-fecha">🟡 8</td>
           <td class="col-fecha">2026-05-15</td>
           <td class="col-fecha">2026-05-28</td>
           <td><span class="tag-pk">agua</span><span class="tag-pk">río</span></td>
@@ -1045,7 +1059,7 @@ EL MARCO DEL PLAN DE ACC…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">45.000.000 CLP</td>
-          <td class="col-fecha">23</td>
+          <td class="col-fecha">🟢 23</td>
           <td class="col-fecha">2026-05-15</td>
           <td class="col-fecha">2026-06-12</td>
           <td><span class="tag-org">DGA</span><span class="tag-pk">agua</span><span class="tag-pk">hidr</span></td>
@@ -1058,7 +1072,7 @@ EL MARCO DEL PLAN DE ACC…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">24.825.000 CLP</td>
-          <td class="col-fecha">12</td>
+          <td class="col-fecha">🟡 12</td>
           <td class="col-fecha">2026-05-15</td>
           <td class="col-fecha">2026-06-01</td>
           <td><span class="tag-pk">agua</span><span class="tag-pk">río</span></td>
@@ -1071,7 +1085,7 @@ EL MARCO DEL PLAN DE ACC…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">21.000.000 CLP</td>
-          <td class="col-fecha">5</td>
+          <td class="col-fecha">🔴 5</td>
           <td class="col-fecha">2026-05-15</td>
           <td class="col-fecha">2026-05-25</td>
           <td><span class="tag-pk">agua</span></td>
@@ -1084,7 +1098,7 @@ EL MARCO DEL PLAN DE ACC…</div></td>
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">190.000.000 CLP</td>
-          <td class="col-fecha">15</td>
+          <td class="col-fecha">🟢 15</td>
           <td class="col-fecha">2026-05-15</td>
           <td class="col-fecha">2026-06-04</td>
           <td><span class="tag-org">CONADI</span><span class="tag-pk">riego</span><span class="tag-pk">drenaje</span></td>
@@ -1097,7 +1111,7 @@ EL MARCO DEL PLAN DE ACC…</div></td>
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">15</td>
+          <td class="col-fecha">🟢 15</td>
           <td class="col-fecha">2026-05-15</td>
           <td class="col-fecha">2026-06-04</td>
           <td><span class="tag-org">DGA</span></td>
@@ -1110,7 +1124,7 @@ EL MARCO DEL PLAN DE ACC…</div></td>
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">15</td>
+          <td class="col-fecha">🟢 15</td>
           <td class="col-fecha">2026-05-15</td>
           <td class="col-fecha">2026-06-04</td>
           <td><span class="tag-org">DGA</span><span class="tag-pk">río</span></td>
@@ -1123,7 +1137,7 @@ EL MARCO DEL PLAN DE ACC…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">9</td>
+          <td class="col-fecha">🟡 9</td>
           <td class="col-fecha">2026-05-15</td>
           <td class="col-fecha">2026-05-29</td>
           <td><span class="tag-org">DOH</span></td>
@@ -1136,7 +1150,7 @@ EL MARCO DEL PLAN DE ACC…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">10.000.000 CLP</td>
-          <td class="col-fecha">7</td>
+          <td class="col-fecha">🔴 7</td>
           <td class="col-fecha">2026-05-14</td>
           <td class="col-fecha">2026-05-27</td>
           <td><span class="tag-pk">agua</span><span class="tag-pk">hidr</span></td>
@@ -1149,7 +1163,7 @@ EL MARCO DEL PLAN DE ACC…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">15.500.000 CLP</td>
-          <td class="col-fecha">5</td>
+          <td class="col-fecha">🔴 5</td>
           <td class="col-fecha">2026-05-14</td>
           <td class="col-fecha">2026-05-25</td>
           <td><span class="tag-pk">modelación</span><span class="tag-pk">río</span></td>
@@ -1163,7 +1177,7 @@ EJECUCION DE LOS PROGRAMAS D…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">18.500.000 CLP</td>
-          <td class="col-fecha">9</td>
+          <td class="col-fecha">🟡 9</td>
           <td class="col-fecha">2026-05-14</td>
           <td class="col-fecha">2026-05-29</td>
           <td><span class="tag-org">INDAP</span><span class="tag-pk">riego</span></td>
@@ -1176,7 +1190,7 @@ EJECUCION DE LOS PROGRAMAS D…</div></td>
           <td class="col-tipo">Pública < 100 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">7.000.000 CLP</td>
-          <td class="col-fecha">8</td>
+          <td class="col-fecha">🟡 8</td>
           <td class="col-fecha">2026-05-14</td>
           <td class="col-fecha">2026-05-28</td>
           <td><span class="tag-pk">estudio</span></td>
@@ -1189,7 +1203,7 @@ EJECUCION DE LOS PROGRAMAS D…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">16</td>
+          <td class="col-fecha">🟢 16</td>
           <td class="col-fecha">2026-05-14</td>
           <td class="col-fecha">2026-06-05</td>
           <td><span class="tag-pk">estudio</span><span class="tag-pk">territorial</span></td>
@@ -1202,7 +1216,7 @@ EJECUCION DE LOS PROGRAMAS D…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">7.450.000 CLP</td>
-          <td class="col-fecha">5</td>
+          <td class="col-fecha">🔴 5</td>
           <td class="col-fecha">2026-05-14</td>
           <td class="col-fecha">2026-05-25</td>
           <td><span class="tag-pk">agua</span></td>
@@ -1215,7 +1229,7 @@ EJECUCION DE LOS PROGRAMAS D…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">13.000.000 CLP</td>
-          <td class="col-fecha">5</td>
+          <td class="col-fecha">🔴 5</td>
           <td class="col-fecha">2026-05-14</td>
           <td class="col-fecha">2026-05-25</td>
           <td><span class="tag-pk">agua</span></td>
@@ -1228,7 +1242,7 @@ EJECUCION DE LOS PROGRAMAS D…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">12.500.000 CLP</td>
-          <td class="col-fecha">2</td>
+          <td class="col-fecha">🔴 2</td>
           <td class="col-fecha">2026-05-14</td>
           <td class="col-fecha">2026-05-22</td>
           <td><span class="tag-pk">agua</span></td>
@@ -1241,7 +1255,7 @@ EJECUCION DE LOS PROGRAMAS D…</div></td>
           <td class="col-tipo">O1</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">22</td>
+          <td class="col-fecha">🟢 22</td>
           <td class="col-fecha">2026-05-14</td>
           <td class="col-fecha">2026-06-11</td>
           <td><span class="tag-org">DOH</span><span class="tag-pk">hidr</span><span class="tag-pk">río</span></td>
@@ -1254,7 +1268,7 @@ EJECUCION DE LOS PROGRAMAS D…</div></td>
           <td class="col-tipo">O1</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">9</td>
+          <td class="col-fecha">🟡 9</td>
           <td class="col-fecha">2026-05-14</td>
           <td class="col-fecha">2026-05-29</td>
           <td><span class="tag-org">DOH</span><span class="tag-pk">cauce</span></td>
@@ -1267,7 +1281,7 @@ EJECUCION DE LOS PROGRAMAS D…</div></td>
           <td class="col-tipo">Pública < 100 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">6.420.000 CLP</td>
-          <td class="col-fecha">5</td>
+          <td class="col-fecha">🔴 5</td>
           <td class="col-fecha">2026-05-14</td>
           <td class="col-fecha">2026-05-25</td>
           <td><span class="tag-org">INDAP</span></td>
@@ -1280,7 +1294,7 @@ EJECUCION DE LOS PROGRAMAS D…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">30.000.000 CLP</td>
-          <td class="col-fecha">5</td>
+          <td class="col-fecha">🔴 5</td>
           <td class="col-fecha">2026-05-14</td>
           <td class="col-fecha">2026-05-25</td>
           <td><span class="tag-org">INDAP</span><span class="tag-pk">consultoría</span></td>
@@ -1293,7 +1307,7 @@ EJECUCION DE LOS PROGRAMAS D…</div></td>
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">159.054.101 CLP</td>
-          <td class="col-fecha">22</td>
+          <td class="col-fecha">🟢 22</td>
           <td class="col-fecha">2026-05-13</td>
           <td class="col-fecha">2026-06-11</td>
           <td><span class="tag-pk">agua</span></td>
@@ -1306,7 +1320,7 @@ EJECUCION DE LOS PROGRAMAS D…</div></td>
           <td class="col-tipo">Pública < 100 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">4.323.270 CLP</td>
-          <td class="col-fecha">4</td>
+          <td class="col-fecha">🔴 4</td>
           <td class="col-fecha">2026-05-13</td>
           <td class="col-fecha">2026-05-25</td>
           <td><span class="tag-pk">agua</span><span class="tag-pk">río</span></td>
@@ -1319,7 +1333,7 @@ EJECUCION DE LOS PROGRAMAS D…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">6</td>
+          <td class="col-fecha">🔴 6</td>
           <td class="col-fecha">2026-05-13</td>
           <td class="col-fecha">2026-05-26</td>
           <td><span class="tag-pk">estudio</span><span class="tag-pk">río</span></td>
@@ -1332,7 +1346,7 @@ EJECUCION DE LOS PROGRAMAS D…</div></td>
           <td class="col-tipo">Pública > 5.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">823.476.035 CLP</td>
-          <td class="col-fecha">23</td>
+          <td class="col-fecha">🟢 23</td>
           <td class="col-fecha">2026-05-13</td>
           <td class="col-fecha">2026-06-12</td>
           <td><span class="tag-pk">agua</span><span class="tag-pk">río</span></td>
@@ -1345,7 +1359,7 @@ EJECUCION DE LOS PROGRAMAS D…</div></td>
           <td class="col-tipo">Pública < 100 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">5</td>
+          <td class="col-fecha">🔴 5</td>
           <td class="col-fecha">2026-05-13</td>
           <td class="col-fecha">2026-05-25</td>
           <td><span class="tag-pk">agua</span><span class="tag-pk">río</span></td>
@@ -1359,7 +1373,7 @@ SOLICITUD DE ADQUISICIONES N°42 ID DOC 958402 DE FE…</div></td>
           <td class="col-tipo">Pública < 100 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">3.800.000 CLP</td>
-          <td class="col-fecha">2</td>
+          <td class="col-fecha">🔴 2</td>
           <td class="col-fecha">2026-05-13</td>
           <td class="col-fecha">2026-05-22</td>
           <td><span class="tag-pk">agua</span></td>
@@ -1372,7 +1386,7 @@ SOLICITUD DE ADQUISICIONES N°42 ID DOC 958402 DE FE…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">50.000.000 CLP</td>
-          <td class="col-fecha">5</td>
+          <td class="col-fecha">🔴 5</td>
           <td class="col-fecha">2026-05-13</td>
           <td class="col-fecha">2026-05-25</td>
           <td><span class="tag-pk">agua</span><span class="tag-pk">riego</span><span class="tag-pk">drenaje</span></td>
@@ -1385,7 +1399,7 @@ SOLICITUD DE ADQUISICIONES N°42 ID DOC 958402 DE FE…</div></td>
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">82.479.730 CLP</td>
-          <td class="col-fecha">23</td>
+          <td class="col-fecha">🟢 23</td>
           <td class="col-fecha">2026-05-13</td>
           <td class="col-fecha">2026-06-12</td>
           <td><span class="tag-pk">agua</span></td>
@@ -1412,7 +1426,7 @@ El objetivo general de la presente licitación pública es la…</div></td>
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">287.624.000 CLP</td>
-          <td class="col-fecha">13</td>
+          <td class="col-fecha">🟢 13</td>
           <td class="col-fecha">2026-05-13</td>
           <td class="col-fecha">2026-06-02</td>
           <td><span class="tag-org">DGA</span><span class="tag-pk">hidr</span></td>
@@ -1425,7 +1439,7 @@ El objetivo general de la presente licitación pública es la…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">56.142.498 CLP</td>
-          <td class="col-fecha">5</td>
+          <td class="col-fecha">🔴 5</td>
           <td class="col-fecha">2026-05-13</td>
           <td class="col-fecha">2026-05-25</td>
           <td><span class="tag-org">DOH</span><span class="tag-pk">río</span></td>
@@ -1438,7 +1452,7 @@ El objetivo general de la presente licitación pública es la…</div></td>
           <td class="col-tipo">O1</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">13</td>
+          <td class="col-fecha">🟢 13</td>
           <td class="col-fecha">2026-05-13</td>
           <td class="col-fecha">2026-06-02</td>
           <td><span class="tag-org">DOH</span><span class="tag-pk">asesoría</span><span class="tag-pk">río</span></td>
@@ -1451,7 +1465,7 @@ El objetivo general de la presente licitación pública es la…</div></td>
           <td class="col-tipo">O1</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">8</td>
+          <td class="col-fecha">🟡 8</td>
           <td class="col-fecha">2026-05-13</td>
           <td class="col-fecha">2026-05-28</td>
           <td><span class="tag-org">DOH</span><span class="tag-pk">agua</span><span class="tag-pk">cauce</span></td>
@@ -1464,7 +1478,7 @@ El objetivo general de la presente licitación pública es la…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">7</td>
+          <td class="col-fecha">🔴 7</td>
           <td class="col-fecha">2026-05-13</td>
           <td class="col-fecha">2026-05-27</td>
           <td><span class="tag-org">CONADI</span><span class="tag-pk">agua</span><span class="tag-pk">asesoría</span><span class="tag-pk">río</span><span class="tag-pk">aprovechamiento</span></td>
@@ -1477,7 +1491,7 @@ El objetivo general de la presente licitación pública es la…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">40.000.000 CLP</td>
-          <td class="col-fecha">5</td>
+          <td class="col-fecha">🔴 5</td>
           <td class="col-fecha">2026-05-13</td>
           <td class="col-fecha">2026-05-25</td>
           <td><span class="tag-org">CONADI</span><span class="tag-pk">río</span><span class="tag-pk">territorial</span></td>
@@ -1490,7 +1504,7 @@ El objetivo general de la presente licitación pública es la…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">8.000.000 CLP</td>
-          <td class="col-fecha">8</td>
+          <td class="col-fecha">🟡 8</td>
           <td class="col-fecha">2026-05-12</td>
           <td class="col-fecha">2026-05-28</td>
           <td><span class="tag-pk">agua</span><span class="tag-pk">inundación</span></td>
@@ -1503,7 +1517,7 @@ El objetivo general de la presente licitación pública es la…</div></td>
           <td class="col-tipo">Pública < 100 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">5.400.000 CLP</td>
-          <td class="col-fecha">5</td>
+          <td class="col-fecha">🔴 5</td>
           <td class="col-fecha">2026-05-12</td>
           <td class="col-fecha">2026-05-25</td>
           <td><span class="tag-pk">asesoría</span></td>
@@ -1517,7 +1531,7 @@ Necesario para la elaboración de raciones alimentarias destinadas a paciente…
           <td class="col-tipo">Pública < 100 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">2.795.560 CLP</td>
-          <td class="col-fecha">2</td>
+          <td class="col-fecha">🔴 2</td>
           <td class="col-fecha">2026-05-12</td>
           <td class="col-fecha">2026-05-22</td>
           <td><span class="tag-pk">agua</span><span class="tag-pk">río</span></td>
@@ -1530,7 +1544,7 @@ Necesario para la elaboración de raciones alimentarias destinadas a paciente…
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">82.461.369 CLP</td>
-          <td class="col-fecha">8</td>
+          <td class="col-fecha">🟡 8</td>
           <td class="col-fecha">2026-05-12</td>
           <td class="col-fecha">2026-05-28</td>
           <td><span class="tag-pk">agua</span></td>
@@ -1543,7 +1557,7 @@ Necesario para la elaboración de raciones alimentarias destinadas a paciente…
           <td class="col-tipo">Pública > 5.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">189.808 UTM</td>
-          <td class="col-fecha">27</td>
+          <td class="col-fecha">🟢 27</td>
           <td class="col-fecha">2026-05-12</td>
           <td class="col-fecha">2026-06-16</td>
           <td><span class="tag-pk">agua</span></td>
@@ -1556,7 +1570,7 @@ Necesario para la elaboración de raciones alimentarias destinadas a paciente…
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">112.500.000 CLP</td>
-          <td class="col-fecha">12</td>
+          <td class="col-fecha">🟡 12</td>
           <td class="col-fecha">2026-05-12</td>
           <td class="col-fecha">2026-06-01</td>
           <td><span class="tag-pk">agua</span></td>
@@ -1569,7 +1583,7 @@ Necesario para la elaboración de raciones alimentarias destinadas a paciente…
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">12</td>
+          <td class="col-fecha">🟡 12</td>
           <td class="col-fecha">2026-05-12</td>
           <td class="col-fecha">2026-06-01</td>
           <td><span class="tag-pk">agua</span></td>
@@ -1582,7 +1596,7 @@ Necesario para la elaboración de raciones alimentarias destinadas a paciente…
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">48.580.000 CLP</td>
-          <td class="col-fecha">2</td>
+          <td class="col-fecha">🔴 2</td>
           <td class="col-fecha">2026-05-12</td>
           <td class="col-fecha">2026-05-22</td>
           <td><span class="tag-pk">agua</span><span class="tag-pk">río</span></td>
@@ -1595,7 +1609,7 @@ Necesario para la elaboración de raciones alimentarias destinadas a paciente…
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">12</td>
+          <td class="col-fecha">🟡 12</td>
           <td class="col-fecha">2026-05-12</td>
           <td class="col-fecha">2026-06-01</td>
           <td><span class="tag-pk">estudio</span></td>
@@ -1608,7 +1622,7 @@ Necesario para la elaboración de raciones alimentarias destinadas a paciente…
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">65.000.000 CLP</td>
-          <td class="col-fecha">5</td>
+          <td class="col-fecha">🔴 5</td>
           <td class="col-fecha">2026-05-12</td>
           <td class="col-fecha">2026-05-25</td>
           <td><span class="tag-pk">hidr</span></td>
@@ -1621,7 +1635,7 @@ Necesario para la elaboración de raciones alimentarias destinadas a paciente…
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">9</td>
+          <td class="col-fecha">🟡 9</td>
           <td class="col-fecha">2026-05-12</td>
           <td class="col-fecha">2026-05-29</td>
           <td><span class="tag-org">DOH</span><span class="tag-pk">río</span></td>
@@ -1634,7 +1648,7 @@ Necesario para la elaboración de raciones alimentarias destinadas a paciente…
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">10.000.000 CLP</td>
-          <td class="col-fecha">5</td>
+          <td class="col-fecha">🔴 5</td>
           <td class="col-fecha">2026-05-12</td>
           <td class="col-fecha">2026-05-25</td>
           <td><span class="tag-org">CONADI</span><span class="tag-pk">río</span></td>
@@ -1647,7 +1661,7 @@ Necesario para la elaboración de raciones alimentarias destinadas a paciente…
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">70.000.000 CLP</td>
-          <td class="col-fecha">2</td>
+          <td class="col-fecha">🔴 2</td>
           <td class="col-fecha">2026-05-12</td>
           <td class="col-fecha">2026-05-22</td>
           <td><span class="tag-org">CONADI</span></td>
@@ -1660,7 +1674,7 @@ Necesario para la elaboración de raciones alimentarias destinadas a paciente…
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">45.000.000 CLP</td>
-          <td class="col-fecha">2</td>
+          <td class="col-fecha">🔴 2</td>
           <td class="col-fecha">2026-05-12</td>
           <td class="col-fecha">2026-05-22</td>
           <td><span class="tag-org">CONADI</span><span class="tag-pk">río</span><span class="tag-pk">territorial</span></td>
@@ -1673,7 +1687,7 @@ Necesario para la elaboración de raciones alimentarias destinadas a paciente…
           <td class="col-tipo">Pública < 100 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">4.600.000 CLP</td>
-          <td class="col-fecha">5</td>
+          <td class="col-fecha">🔴 5</td>
           <td class="col-fecha">2026-05-12</td>
           <td class="col-fecha">2026-05-25</td>
           <td><span class="tag-org">INDAP</span></td>
@@ -1686,7 +1700,7 @@ Necesario para la elaboración de raciones alimentarias destinadas a paciente…
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">2</td>
+          <td class="col-fecha">🔴 2</td>
           <td class="col-fecha">2026-05-11</td>
           <td class="col-fecha">2026-05-22</td>
           <td><span class="tag-pk">asesoría</span></td>
@@ -1699,7 +1713,7 @@ Necesario para la elaboración de raciones alimentarias destinadas a paciente…
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">101.263.050 CLP</td>
-          <td class="col-fecha">12</td>
+          <td class="col-fecha">🟡 12</td>
           <td class="col-fecha">2026-05-11</td>
           <td class="col-fecha">2026-06-01</td>
           <td><span class="tag-pk">hidr</span></td>
@@ -1712,7 +1726,7 @@ Necesario para la elaboración de raciones alimentarias destinadas a paciente…
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">2</td>
+          <td class="col-fecha">🔴 2</td>
           <td class="col-fecha">2026-05-11</td>
           <td class="col-fecha">2026-05-22</td>
           <td><span class="tag-pk">agua</span><span class="tag-pk">río</span></td>
@@ -1725,7 +1739,7 @@ Necesario para la elaboración de raciones alimentarias destinadas a paciente…
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">22.000.000 CLP</td>
-          <td class="col-fecha">5</td>
+          <td class="col-fecha">🔴 5</td>
           <td class="col-fecha">2026-05-11</td>
           <td class="col-fecha">2026-05-25</td>
           <td><span class="tag-pk">agua</span></td>
@@ -1738,7 +1752,7 @@ Necesario para la elaboración de raciones alimentarias destinadas a paciente…
           <td class="col-tipo">Pública > 5.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">21</td>
+          <td class="col-fecha">🟢 21</td>
           <td class="col-fecha">2026-05-11</td>
           <td class="col-fecha">2026-06-10</td>
           <td><span class="tag-pk">agua</span></td>
@@ -1752,7 +1766,7 @@ participación de niños y niñas de 4 a 8 años…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">12</td>
+          <td class="col-fecha">🟡 12</td>
           <td class="col-fecha">2026-05-11</td>
           <td class="col-fecha">2026-06-01</td>
           <td><span class="tag-pk">estudio</span></td>
@@ -1765,7 +1779,7 @@ participación de niños y niñas de 4 a 8 años…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">5</td>
+          <td class="col-fecha">🔴 5</td>
           <td class="col-fecha">2026-05-11</td>
           <td class="col-fecha">2026-05-25</td>
           <td><span class="tag-pk">asesoría</span></td>
@@ -1782,7 +1796,7 @@ MC.2206005002
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">7</td>
+          <td class="col-fecha">🔴 7</td>
           <td class="col-fecha">2026-05-11</td>
           <td class="col-fecha">2026-05-27</td>
           <td><span class="tag-pk">agua</span><span class="tag-pk">hidr</span></td>
@@ -1795,7 +1809,7 @@ MC.2206005002
           <td class="col-tipo">Pública < 100 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">5.900.000 CLP</td>
-          <td class="col-fecha">2</td>
+          <td class="col-fecha">🔴 2</td>
           <td class="col-fecha">2026-05-11</td>
           <td class="col-fecha">2026-05-22</td>
           <td><span class="tag-pk">hidr</span><span class="tag-pk">río</span></td>
@@ -1808,7 +1822,7 @@ MC.2206005002
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">5</td>
+          <td class="col-fecha">🔴 5</td>
           <td class="col-fecha">2026-05-11</td>
           <td class="col-fecha">2026-05-25</td>
           <td><span class="tag-pk">asesoría</span><span class="tag-pk">río</span></td>
@@ -1821,7 +1835,7 @@ MC.2206005002
           <td class="col-tipo">Privada 100–1.000 UTM</td>
           <td><span class="badge badge-priv">Privada</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">2</td>
+          <td class="col-fecha">🔴 2</td>
           <td class="col-fecha">2026-05-11</td>
           <td class="col-fecha">2026-05-22</td>
           <td><span class="tag-pk">estudio</span></td>
@@ -1834,7 +1848,7 @@ MC.2206005002
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">2</td>
+          <td class="col-fecha">🔴 2</td>
           <td class="col-fecha">2026-05-11</td>
           <td class="col-fecha">2026-05-22</td>
           <td><span class="tag-pk">agua</span></td>
@@ -1847,7 +1861,7 @@ MC.2206005002
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">128.057.610 CLP</td>
-          <td class="col-fecha">12</td>
+          <td class="col-fecha">🟡 12</td>
           <td class="col-fecha">2026-05-11</td>
           <td class="col-fecha">2026-06-01</td>
           <td><span class="tag-org">INDAP</span><span class="tag-pk">asesoría</span></td>
@@ -1861,7 +1875,7 @@ preventivo programado, mantenimiento mayor anual rehabilitación …</div></td>
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">12</td>
+          <td class="col-fecha">🟡 12</td>
           <td class="col-fecha">2026-05-11</td>
           <td class="col-fecha">2026-06-01</td>
           <td><span class="tag-pk">agua</span><span class="tag-pk">asesoría</span></td>
@@ -1874,7 +1888,7 @@ preventivo programado, mantenimiento mayor anual rehabilitación …</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">2</td>
+          <td class="col-fecha">🔴 2</td>
           <td class="col-fecha">2026-05-11</td>
           <td class="col-fecha">2026-05-22</td>
           <td><span class="tag-pk">agua</span><span class="tag-pk">río</span></td>
@@ -1887,7 +1901,7 @@ preventivo programado, mantenimiento mayor anual rehabilitación …</div></td>
           <td class="col-tipo">Pública < 100 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">4.000.000 CLP</td>
-          <td class="col-fecha">6</td>
+          <td class="col-fecha">🔴 6</td>
           <td class="col-fecha">2026-05-11</td>
           <td class="col-fecha">2026-05-26</td>
           <td><span class="tag-org">DGA</span><span class="tag-pk">río</span></td>
@@ -1901,7 +1915,7 @@ El área…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">2</td>
+          <td class="col-fecha">🔴 2</td>
           <td class="col-fecha">2026-05-11</td>
           <td class="col-fecha">2026-05-22</td>
           <td><span class="tag-org">DGA</span><span class="tag-pk">río</span></td>
@@ -1914,7 +1928,7 @@ El área…</div></td>
           <td class="col-tipo">O1</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">7</td>
+          <td class="col-fecha">🔴 7</td>
           <td class="col-fecha">2026-05-11</td>
           <td class="col-fecha">2026-05-27</td>
           <td><span class="tag-org">DOH</span><span class="tag-pk">riego</span><span class="tag-pk">asesoría</span></td>
@@ -1927,7 +1941,7 @@ El área…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">5</td>
+          <td class="col-fecha">🔴 5</td>
           <td class="col-fecha">2026-05-11</td>
           <td class="col-fecha">2026-05-25</td>
           <td><span class="tag-org">CONADI</span></td>
@@ -1940,7 +1954,7 @@ El área…</div></td>
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">12</td>
+          <td class="col-fecha">🟡 12</td>
           <td class="col-fecha">2026-05-11</td>
           <td class="col-fecha">2026-06-01</td>
           <td><span class="tag-org">CONADI</span><span class="tag-pk">agua</span></td>
@@ -1953,7 +1967,7 @@ El área…</div></td>
           <td class="col-tipo">O1</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">13</td>
+          <td class="col-fecha">🟢 13</td>
           <td class="col-fecha">2026-05-08</td>
           <td class="col-fecha">2026-06-02</td>
           <td><span class="tag-org">DOH</span><span class="tag-pk">riego</span></td>
@@ -1966,7 +1980,7 @@ El área…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">40.000.000 CLP</td>
-          <td class="col-fecha">5</td>
+          <td class="col-fecha">🔴 5</td>
           <td class="col-fecha">2026-05-08</td>
           <td class="col-fecha">2026-05-25</td>
           <td><span class="tag-pk">agua</span><span class="tag-pk">río</span></td>
@@ -1979,7 +1993,7 @@ El área…</div></td>
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">14</td>
+          <td class="col-fecha">🟢 14</td>
           <td class="col-fecha">2026-05-08</td>
           <td class="col-fecha">2026-06-03</td>
           <td><span class="tag-pk">estudio</span><span class="tag-pk">agua</span><span class="tag-pk">río</span><span class="tag-pk">APR</span></td>
@@ -1992,7 +2006,7 @@ El área…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">50.000.000 CLP</td>
-          <td class="col-fecha">6</td>
+          <td class="col-fecha">🔴 6</td>
           <td class="col-fecha">2026-05-08</td>
           <td class="col-fecha">2026-05-26</td>
           <td><span class="tag-pk">agua</span><span class="tag-pk">riego</span><span class="tag-pk">drenaje</span></td>
@@ -2005,7 +2019,7 @@ El área…</div></td>
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">8</td>
+          <td class="col-fecha">🟡 8</td>
           <td class="col-fecha">2026-05-08</td>
           <td class="col-fecha">2026-05-28</td>
           <td><span class="tag-pk">agua</span></td>
@@ -2018,7 +2032,7 @@ El área…</div></td>
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">131.472.000 CLP</td>
-          <td class="col-fecha">9</td>
+          <td class="col-fecha">🟡 9</td>
           <td class="col-fecha">2026-05-08</td>
           <td class="col-fecha">2026-05-29</td>
           <td><span class="tag-pk">asesoría</span><span class="tag-pk">río</span></td>
@@ -2031,7 +2045,7 @@ El área…</div></td>
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">259.817.432 CLP</td>
-          <td class="col-fecha">8</td>
+          <td class="col-fecha">🟡 8</td>
           <td class="col-fecha">2026-05-08</td>
           <td class="col-fecha">2026-05-28</td>
           <td><span class="tag-pk">agua</span></td>
@@ -2044,7 +2058,7 @@ El área…</div></td>
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">140.000.000 CLP</td>
-          <td class="col-fecha">9</td>
+          <td class="col-fecha">🟡 9</td>
           <td class="col-fecha">2026-05-08</td>
           <td class="col-fecha">2026-05-29</td>
           <td><span class="tag-pk">agua</span></td>
@@ -2057,7 +2071,7 @@ El área…</div></td>
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">120.000.000 CLP</td>
-          <td class="col-fecha">8</td>
+          <td class="col-fecha">🟡 8</td>
           <td class="col-fecha">2026-05-08</td>
           <td class="col-fecha">2026-05-28</td>
           <td><span class="tag-org">DGA</span><span class="tag-pk">agua</span><span class="tag-pk">río</span></td>
@@ -2070,7 +2084,7 @@ El área…</div></td>
           <td class="col-tipo">O1</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">5</td>
+          <td class="col-fecha">🔴 5</td>
           <td class="col-fecha">2026-05-08</td>
           <td class="col-fecha">2026-05-25</td>
           <td><span class="tag-org">DOH</span></td>
@@ -2083,7 +2097,7 @@ El área…</div></td>
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">8</td>
+          <td class="col-fecha">🟡 8</td>
           <td class="col-fecha">2026-05-08</td>
           <td class="col-fecha">2026-05-28</td>
           <td><span class="tag-org">CONADI</span></td>
@@ -2096,7 +2110,7 @@ El área…</div></td>
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">2</td>
+          <td class="col-fecha">🔴 2</td>
           <td class="col-fecha">2026-05-08</td>
           <td class="col-fecha">2026-05-22</td>
           <td><span class="tag-org">INDAP</span></td>
@@ -2109,7 +2123,7 @@ El área…</div></td>
           <td class="col-tipo">Pública > 5.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">33</td>
+          <td class="col-fecha">🟢 33</td>
           <td class="col-fecha">2026-05-07</td>
           <td class="col-fecha">2026-06-22</td>
           <td><span class="tag-pk">agua</span></td>
@@ -2122,7 +2136,7 @@ El área…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">30.000.000 CLP</td>
-          <td class="col-fecha">8</td>
+          <td class="col-fecha">🟡 8</td>
           <td class="col-fecha">2026-05-07</td>
           <td class="col-fecha">2026-05-28</td>
           <td><span class="tag-pk">agua</span><span class="tag-pk">hidr</span><span class="tag-pk">río</span></td>
@@ -2135,7 +2149,7 @@ El área…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">2</td>
+          <td class="col-fecha">🔴 2</td>
           <td class="col-fecha">2026-05-07</td>
           <td class="col-fecha">2026-05-22</td>
           <td><span class="tag-pk">agua</span></td>
@@ -2148,7 +2162,7 @@ El área…</div></td>
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">150.000.000 CLP</td>
-          <td class="col-fecha">7</td>
+          <td class="col-fecha">🔴 7</td>
           <td class="col-fecha">2026-05-07</td>
           <td class="col-fecha">2026-05-27</td>
           <td><span class="tag-pk">agua</span></td>
@@ -2161,7 +2175,7 @@ El área…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">7</td>
+          <td class="col-fecha">🔴 7</td>
           <td class="col-fecha">2026-05-07</td>
           <td class="col-fecha">2026-05-27</td>
           <td><span class="tag-pk">agua</span></td>
@@ -2174,7 +2188,7 @@ El área…</div></td>
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">15</td>
+          <td class="col-fecha">🟢 15</td>
           <td class="col-fecha">2026-05-07</td>
           <td class="col-fecha">2026-06-04</td>
           <td><span class="tag-pk">agua</span></td>
@@ -2188,7 +2202,7 @@ DE SALVAVIDAS Y PROFESIONALES DE LA SALUD PARA EL CENTRO DEPORTIVO COMUNITARIO D
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">98.580.000 CLP</td>
-          <td class="col-fecha">7</td>
+          <td class="col-fecha">🔴 7</td>
           <td class="col-fecha">2026-05-07</td>
           <td class="col-fecha">2026-05-27</td>
           <td><span class="tag-pk">agua</span><span class="tag-pk">río</span></td>
@@ -2201,7 +2215,7 @@ DE SALVAVIDAS Y PROFESIONALES DE LA SALUD PARA EL CENTRO DEPORTIVO COMUNITARIO D
           <td class="col-tipo">Pública > 5.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">680.000.000 CLP</td>
-          <td class="col-fecha">19</td>
+          <td class="col-fecha">🟢 19</td>
           <td class="col-fecha">2026-05-07</td>
           <td class="col-fecha">2026-06-08</td>
           <td><span class="tag-pk">estudio</span></td>
@@ -2214,7 +2228,7 @@ DE SALVAVIDAS Y PROFESIONALES DE LA SALUD PARA EL CENTRO DEPORTIVO COMUNITARIO D
           <td class="col-tipo">O1</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">7</td>
+          <td class="col-fecha">🔴 7</td>
           <td class="col-fecha">2026-05-07</td>
           <td class="col-fecha">2026-05-27</td>
           <td><span class="tag-org">DOH</span><span class="tag-pk">río</span><span class="tag-pk">cauce</span></td>
@@ -2228,7 +2242,7 @@ Garantizar e…</div></td>
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">89.000.000 CLP</td>
-          <td class="col-fecha">7</td>
+          <td class="col-fecha">🔴 7</td>
           <td class="col-fecha">2026-05-07</td>
           <td class="col-fecha">2026-05-27</td>
           <td><span class="tag-org">CONADI</span><span class="tag-pk">río</span></td>
@@ -2241,7 +2255,7 @@ Garantizar e…</div></td>
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">6</td>
+          <td class="col-fecha">🔴 6</td>
           <td class="col-fecha">2026-05-07</td>
           <td class="col-fecha">2026-05-26</td>
           <td><span class="tag-org">CONADI</span><span class="tag-pk">agua</span></td>
@@ -2254,7 +2268,7 @@ Garantizar e…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">5</td>
+          <td class="col-fecha">🔴 5</td>
           <td class="col-fecha">2026-05-07</td>
           <td class="col-fecha">2026-05-25</td>
           <td><span class="tag-org">INDAP</span></td>
@@ -2267,7 +2281,7 @@ Garantizar e…</div></td>
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">5</td>
+          <td class="col-fecha">🔴 5</td>
           <td class="col-fecha">2026-05-06</td>
           <td class="col-fecha">2026-05-25</td>
           <td><span class="tag-pk">agua</span></td>
@@ -2280,7 +2294,7 @@ Garantizar e…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">6</td>
+          <td class="col-fecha">🔴 6</td>
           <td class="col-fecha">2026-05-06</td>
           <td class="col-fecha">2026-05-26</td>
           <td><span class="tag-pk">hidr</span></td>
@@ -2293,7 +2307,7 @@ Garantizar e…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">7</td>
+          <td class="col-fecha">🔴 7</td>
           <td class="col-fecha">2026-05-05</td>
           <td class="col-fecha">2026-05-27</td>
           <td><span class="tag-pk">agua</span></td>
@@ -2306,7 +2320,7 @@ Garantizar e…</div></td>
           <td class="col-tipo">Pública > 5.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">17.218 CLF</td>
-          <td class="col-fecha">16</td>
+          <td class="col-fecha">🟢 16</td>
           <td class="col-fecha">2026-05-05</td>
           <td class="col-fecha">2026-06-05</td>
           <td><span class="tag-pk">agua</span></td>
@@ -2319,7 +2333,7 @@ Garantizar e…</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">14.434.000 CLP</td>
-          <td class="col-fecha">6</td>
+          <td class="col-fecha">🔴 6</td>
           <td class="col-fecha">2026-05-05</td>
           <td class="col-fecha">2026-05-26</td>
           <td><span class="tag-pk">hidr</span></td>
@@ -2332,7 +2346,7 @@ Garantizar e…</div></td>
           <td class="col-tipo">O1</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">8</td>
+          <td class="col-fecha">🟡 8</td>
           <td class="col-fecha">2026-05-05</td>
           <td class="col-fecha">2026-05-28</td>
           <td><span class="tag-org">DOH</span><span class="tag-pk">asesoría</span></td>
@@ -2345,7 +2359,7 @@ Garantizar e…</div></td>
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">327.000.000 CLP</td>
-          <td class="col-fecha">6</td>
+          <td class="col-fecha">🔴 6</td>
           <td class="col-fecha">2026-05-05</td>
           <td class="col-fecha">2026-05-26</td>
           <td><span class="tag-org">DGA</span><span class="tag-pk">río</span></td>
@@ -2359,7 +2373,7 @@ Garantizar el éxito operativo del pres…</div></td>
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">89.000.000 CLP</td>
-          <td class="col-fecha">14</td>
+          <td class="col-fecha">🟢 14</td>
           <td class="col-fecha">2026-05-05</td>
           <td class="col-fecha">2026-06-03</td>
           <td><span class="tag-org">CONADI</span><span class="tag-pk">río</span></td>
@@ -2372,7 +2386,7 @@ Garantizar el éxito operativo del pres…</div></td>
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">6</td>
+          <td class="col-fecha">🔴 6</td>
           <td class="col-fecha">2026-05-05</td>
           <td class="col-fecha">2026-05-26</td>
           <td><span class="tag-org">CONADI</span><span class="tag-pk">riego</span><span class="tag-pk">drenaje</span></td>
@@ -2386,7 +2400,7 @@ de manera continua la labor asistencial que …</div></td>
           <td class="col-tipo">Pública > 5.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">14</td>
+          <td class="col-fecha">🟢 14</td>
           <td class="col-fecha">2026-05-04</td>
           <td class="col-fecha">2026-06-03</td>
           <td><span class="tag-pk">hidr</span></td>
@@ -2399,7 +2413,7 @@ de manera continua la labor asistencial que …</div></td>
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">7</td>
+          <td class="col-fecha">🔴 7</td>
           <td class="col-fecha">2026-05-04</td>
           <td class="col-fecha">2026-05-27</td>
           <td><span class="tag-pk">agua</span></td>
@@ -2412,7 +2426,7 @@ de manera continua la labor asistencial que …</div></td>
           <td class="col-tipo">O1</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">12</td>
+          <td class="col-fecha">🟡 12</td>
           <td class="col-fecha">2026-05-04</td>
           <td class="col-fecha">2026-06-01</td>
           <td><span class="tag-org">DOH</span><span class="tag-pk">agua</span></td>
@@ -2425,7 +2439,7 @@ de manera continua la labor asistencial que …</div></td>
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">160.000.000 CLP</td>
-          <td class="col-fecha">5</td>
+          <td class="col-fecha">🔴 5</td>
           <td class="col-fecha">2026-05-04</td>
           <td class="col-fecha">2026-05-25</td>
           <td><span class="tag-org">CONADI</span><span class="tag-pk">agua</span><span class="tag-pk">derecho de agua</span><span class="tag-pk">aprovechamiento</span></td>
@@ -2438,7 +2452,7 @@ de manera continua la labor asistencial que …</div></td>
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">89.000.000 CLP</td>
-          <td class="col-fecha">13</td>
+          <td class="col-fecha">🟢 13</td>
           <td class="col-fecha">2026-05-04</td>
           <td class="col-fecha">2026-06-02</td>
           <td><span class="tag-org">CONADI</span><span class="tag-pk">río</span></td>
@@ -2451,7 +2465,7 @@ de manera continua la labor asistencial que …</div></td>
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">80.000.000 CLP</td>
-          <td class="col-fecha">6</td>
+          <td class="col-fecha">🔴 6</td>
           <td class="col-fecha">2026-05-04</td>
           <td class="col-fecha">2026-05-26</td>
           <td><span class="tag-org">CONADI</span></td>
@@ -2464,7 +2478,7 @@ de manera continua la labor asistencial que …</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">5</td>
+          <td class="col-fecha">🔴 5</td>
           <td class="col-fecha">2026-05-04</td>
           <td class="col-fecha">2026-05-25</td>
           <td><span class="tag-org">CONADI</span></td>
@@ -2477,7 +2491,7 @@ de manera continua la labor asistencial que …</div></td>
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">4</td>
+          <td class="col-fecha">🔴 4</td>
           <td class="col-fecha">2026-04-30</td>
           <td class="col-fecha">2026-05-25</td>
           <td><span class="tag-pk">agua</span></td>
@@ -2490,7 +2504,7 @@ de manera continua la labor asistencial que …</div></td>
           <td class="col-tipo">Pública > 5.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">2.818.423.335 CLP</td>
-          <td class="col-fecha">12</td>
+          <td class="col-fecha">🟡 12</td>
           <td class="col-fecha">2026-04-30</td>
           <td class="col-fecha">2026-06-01</td>
           <td><span class="tag-pk">hidr</span></td>
@@ -2503,7 +2517,7 @@ de manera continua la labor asistencial que …</div></td>
           <td class="col-tipo">O1</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">13</td>
+          <td class="col-fecha">🟢 13</td>
           <td class="col-fecha">2026-04-30</td>
           <td class="col-fecha">2026-06-02</td>
           <td><span class="tag-org">DOH</span></td>
@@ -2516,7 +2530,7 @@ de manera continua la labor asistencial que …</div></td>
           <td class="col-tipo">O1</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">7</td>
+          <td class="col-fecha">🔴 7</td>
           <td class="col-fecha">2026-04-30</td>
           <td class="col-fecha">2026-05-27</td>
           <td><span class="tag-org">DOH</span></td>
@@ -2529,7 +2543,7 @@ de manera continua la labor asistencial que …</div></td>
           <td class="col-tipo">O1</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">7</td>
+          <td class="col-fecha">🔴 7</td>
           <td class="col-fecha">2026-04-30</td>
           <td class="col-fecha">2026-05-27</td>
           <td><span class="tag-org">DOH</span></td>
@@ -2542,7 +2556,7 @@ de manera continua la labor asistencial que …</div></td>
           <td class="col-tipo">O1</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">6</td>
+          <td class="col-fecha">🔴 6</td>
           <td class="col-fecha">2026-04-30</td>
           <td class="col-fecha">2026-05-26</td>
           <td><span class="tag-org">DOH</span><span class="tag-pk">río</span></td>
@@ -2555,7 +2569,7 @@ de manera continua la labor asistencial que …</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">24.000.000 CLP</td>
-          <td class="col-fecha">2</td>
+          <td class="col-fecha">🔴 2</td>
           <td class="col-fecha">2026-04-30</td>
           <td class="col-fecha">2026-05-22</td>
           <td><span class="tag-org">CONADI</span><span class="tag-pk">territorial</span></td>
@@ -2568,7 +2582,7 @@ de manera continua la labor asistencial que …</div></td>
           <td class="col-tipo">Pública 100–1.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">25.891.800 CLP</td>
-          <td class="col-fecha">26</td>
+          <td class="col-fecha">🟢 26</td>
           <td class="col-fecha">2026-04-29</td>
           <td class="col-fecha">2026-06-15</td>
           <td><span class="tag-pk">agua</span></td>
@@ -2581,7 +2595,7 @@ de manera continua la labor asistencial que …</div></td>
           <td class="col-tipo">Pública > 5.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">9</td>
+          <td class="col-fecha">🟡 9</td>
           <td class="col-fecha">2026-04-29</td>
           <td class="col-fecha">2026-05-29</td>
           <td><span class="tag-pk">riego</span><span class="tag-pk">río</span></td>
@@ -2594,7 +2608,7 @@ de manera continua la labor asistencial que …</div></td>
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">342.309.450 CLP</td>
-          <td class="col-fecha">2</td>
+          <td class="col-fecha">🔴 2</td>
           <td class="col-fecha">2026-04-29</td>
           <td class="col-fecha">2026-05-22</td>
           <td><span class="tag-org">DOH</span><span class="tag-pk">hidr</span><span class="tag-pk">río</span></td>
@@ -2608,7 +2622,7 @@ saludable y agradable, a través de la manten…</div></td>
           <td class="col-tipo">Pública > 5.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">27.692 UTM</td>
-          <td class="col-fecha">13</td>
+          <td class="col-fecha">🟢 13</td>
           <td class="col-fecha">2026-04-28</td>
           <td class="col-fecha">2026-06-02</td>
           <td><span class="tag-pk">agua</span></td>
@@ -2621,7 +2635,7 @@ saludable y agradable, a través de la manten…</div></td>
           <td class="col-tipo">O1</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">14</td>
+          <td class="col-fecha">🟢 14</td>
           <td class="col-fecha">2026-04-28</td>
           <td class="col-fecha">2026-06-03</td>
           <td><span class="tag-pk">asesoría</span><span class="tag-pk">río</span></td>
@@ -2634,7 +2648,7 @@ saludable y agradable, a través de la manten…</div></td>
           <td class="col-tipo">Pública > 5.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">9</td>
+          <td class="col-fecha">🟡 9</td>
           <td class="col-fecha">2026-04-28</td>
           <td class="col-fecha">2026-05-29</td>
           <td><span class="tag-pk">asesoría</span></td>
@@ -2647,7 +2661,7 @@ saludable y agradable, a través de la manten…</div></td>
           <td class="col-tipo">O1</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">6</td>
+          <td class="col-fecha">🔴 6</td>
           <td class="col-fecha">2026-04-28</td>
           <td class="col-fecha">2026-05-26</td>
           <td><span class="tag-org">DOH</span></td>
@@ -2660,7 +2674,7 @@ saludable y agradable, a través de la manten…</div></td>
           <td class="col-tipo">Pública > 5.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">9</td>
+          <td class="col-fecha">🟡 9</td>
           <td class="col-fecha">2026-04-28</td>
           <td class="col-fecha">2026-05-29</td>
           <td><span class="tag-org">DOH</span><span class="tag-pk">hidr</span><span class="tag-pk">río</span></td>
@@ -2674,7 +2688,7 @@ TERRITORIAL INDÍGENA INDAP-CONADI RAPA NUI 2026.</div></td>
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">7</td>
+          <td class="col-fecha">🔴 7</td>
           <td class="col-fecha">2026-04-28</td>
           <td class="col-fecha">2026-05-27</td>
           <td><span class="tag-org">INDAP</span><span class="tag-pk">territorial</span></td>
@@ -2687,7 +2701,7 @@ TERRITORIAL INDÍGENA INDAP-CONADI RAPA NUI 2026.</div></td>
           <td class="col-tipo">O1</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">20</td>
+          <td class="col-fecha">🟢 20</td>
           <td class="col-fecha">2026-04-27</td>
           <td class="col-fecha">2026-06-09</td>
           <td><span class="tag-pk">asesoría</span><span class="tag-pk">río</span></td>
@@ -2700,7 +2714,7 @@ TERRITORIAL INDÍGENA INDAP-CONADI RAPA NUI 2026.</div></td>
           <td class="col-tipo">O1</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">5</td>
+          <td class="col-fecha">🔴 5</td>
           <td class="col-fecha">2026-04-27</td>
           <td class="col-fecha">2026-05-25</td>
           <td><span class="tag-pk">asesoría</span><span class="tag-pk">río</span></td>
@@ -2713,7 +2727,7 @@ TERRITORIAL INDÍGENA INDAP-CONADI RAPA NUI 2026.</div></td>
           <td class="col-tipo">O1</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">5</td>
+          <td class="col-fecha">🔴 5</td>
           <td class="col-fecha">2026-04-27</td>
           <td class="col-fecha">2026-05-25</td>
           <td><span class="tag-pk">asesoría</span><span class="tag-pk">río</span></td>
@@ -2726,7 +2740,7 @@ TERRITORIAL INDÍGENA INDAP-CONADI RAPA NUI 2026.</div></td>
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">200.000.000 CLP</td>
-          <td class="col-fecha">2</td>
+          <td class="col-fecha">🔴 2</td>
           <td class="col-fecha">2026-04-27</td>
           <td class="col-fecha">2026-05-22</td>
           <td><span class="tag-pk">agua</span></td>
@@ -2739,7 +2753,7 @@ TERRITORIAL INDÍGENA INDAP-CONADI RAPA NUI 2026.</div></td>
           <td class="col-tipo">O1</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">20</td>
+          <td class="col-fecha">🟢 20</td>
           <td class="col-fecha">2026-04-27</td>
           <td class="col-fecha">2026-06-09</td>
           <td><span class="tag-pk">asesoría</span><span class="tag-pk">río</span></td>
@@ -2752,7 +2766,7 @@ TERRITORIAL INDÍGENA INDAP-CONADI RAPA NUI 2026.</div></td>
           <td class="col-tipo">O1</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">7</td>
+          <td class="col-fecha">🔴 7</td>
           <td class="col-fecha">2026-04-27</td>
           <td class="col-fecha">2026-05-27</td>
           <td><span class="tag-org">DOH</span><span class="tag-pk">estudio</span><span class="tag-pk">hidr</span><span class="tag-pk">río</span></td>
@@ -2765,7 +2779,7 @@ TERRITORIAL INDÍGENA INDAP-CONADI RAPA NUI 2026.</div></td>
           <td class="col-tipo">Pública > 5.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">467.555.000 CLP</td>
-          <td class="col-fecha">7</td>
+          <td class="col-fecha">🔴 7</td>
           <td class="col-fecha">2026-04-27</td>
           <td class="col-fecha">2026-05-27</td>
           <td><span class="tag-pk">estudio</span></td>
@@ -2778,7 +2792,7 @@ TERRITORIAL INDÍGENA INDAP-CONADI RAPA NUI 2026.</div></td>
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">193.732.000 CLP</td>
-          <td class="col-fecha">14</td>
+          <td class="col-fecha">🟢 14</td>
           <td class="col-fecha">2026-04-27</td>
           <td class="col-fecha">2026-06-03</td>
           <td><span class="tag-org">CONADI</span><span class="tag-pk">río</span></td>
@@ -2791,7 +2805,7 @@ TERRITORIAL INDÍGENA INDAP-CONADI RAPA NUI 2026.</div></td>
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">14</td>
+          <td class="col-fecha">🟢 14</td>
           <td class="col-fecha">2026-04-24</td>
           <td class="col-fecha">2026-06-03</td>
           <td><span class="tag-pk">agua</span></td>
@@ -2804,7 +2818,7 @@ TERRITORIAL INDÍGENA INDAP-CONADI RAPA NUI 2026.</div></td>
           <td class="col-tipo">Privada 1.000–2.000 UTM</td>
           <td><span class="badge badge-priv">Privada</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">5</td>
+          <td class="col-fecha">🔴 5</td>
           <td class="col-fecha">2026-04-23</td>
           <td class="col-fecha">2026-05-25</td>
           <td><span class="tag-pk">agua</span><span class="tag-pk">consultoría</span></td>
@@ -2817,7 +2831,7 @@ TERRITORIAL INDÍGENA INDAP-CONADI RAPA NUI 2026.</div></td>
           <td class="col-tipo">Pública 1.000–2.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">12</td>
+          <td class="col-fecha">🟡 12</td>
           <td class="col-fecha">2026-04-23</td>
           <td class="col-fecha">2026-06-01</td>
           <td><span class="tag-pk">estudio</span><span class="tag-pk">agua</span><span class="tag-pk">río</span></td>
@@ -2830,7 +2844,7 @@ TERRITORIAL INDÍGENA INDAP-CONADI RAPA NUI 2026.</div></td>
           <td class="col-tipo">Pública > 5.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">20</td>
+          <td class="col-fecha">🟢 20</td>
           <td class="col-fecha">2026-04-23</td>
           <td class="col-fecha">2026-06-09</td>
           <td><span class="tag-pk">agua</span></td>
@@ -2843,7 +2857,7 @@ TERRITORIAL INDÍGENA INDAP-CONADI RAPA NUI 2026.</div></td>
           <td class="col-tipo">O1</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">15</td>
+          <td class="col-fecha">🟢 15</td>
           <td class="col-fecha">2026-04-23</td>
           <td class="col-fecha">2026-06-04</td>
           <td><span class="tag-org">DOH</span></td>
@@ -2856,7 +2870,7 @@ TERRITORIAL INDÍGENA INDAP-CONADI RAPA NUI 2026.</div></td>
           <td class="col-tipo">Pública Servicios Personales</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">13</td>
+          <td class="col-fecha">🟢 13</td>
           <td class="col-fecha">2026-04-21</td>
           <td class="col-fecha">2026-06-02</td>
           <td><span class="tag-pk">estudio</span><span class="tag-pk">río</span></td>
@@ -2869,7 +2883,7 @@ TERRITORIAL INDÍGENA INDAP-CONADI RAPA NUI 2026.</div></td>
           <td class="col-tipo">Pública > 5.000 UTM</td>
           <td><span class="badge badge-pub">Pública</span></td>
           <td class="col-monto">—</td>
-          <td class="col-fecha">2</td>
+          <td class="col-fecha">🔴 2</td>
           <td class="col-fecha">2026-04-21</td>
           <td class="col-fecha">2026-05-22</td>
           <td><span class="tag-pk">agua</span><span class="tag-pk">río</span></td>
@@ -2878,25 +2892,27 @@ TERRITORIAL INDÍGENA INDAP-CONADI RAPA NUI 2026.</div></td>
   </div>
 </div>
 <div class="container" style="padding-top:0">
-  <div class="urgentes-wrap">
-    <div class="urgentes-titulo">⚠ Cierran esta semana (116)</div>
-    <table width="100%" style="border-collapse:collapse">
-      <thead><tr>
-        <th class="urg-th">Código</th><th class="urg-th">Nombre</th>
-        <th class="urg-th">Organismo</th><th class="urg-th">Días</th>
-        <th class="urg-th">Cierre</th>
-      </tr></thead>
-      <tbody><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1402-4-L126" target="_blank" class="cod-link">1402-4-L126</a></td><td class="col-nom">CP RANCAGUA, SERVICIO DE TRANSPORTE DE PASAJEROS MUJERES RECLUIDAS EMBARAZADAS O CON HIJOS EN PERIODO DE LACTANCIA DE ENTRE 0-24 MESES .<div class="desc">VER ESPECIFICACIONES TECNICAS ADJUNTAS</div></td><td>DIRECCION GENERAL DE GENDARMERIA DE CHIL<div class="region">Región del Libertador General Bernardo O´Higgins</div></td><td class="col-fecha"><span class="dias-hoy">🔴 HOY</span></td><td class="col-fecha">2026-05-22</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=3179-20-LE26" target="_blank" class="cod-link">3179-20-LE26</a></td><td class="col-nom">MANTA DE AGUA IMPERMEABLE<div class="desc">MANTA DE AGUA IMPERMEABLE</div></td><td>DIRECCION DE LOGISTICA DE CARABINEROS<div class="region">Región Metropolitana de Santiago</div></td><td class="col-fecha"><span class="dias-hoy">🔴 HOY</span></td><td class="col-fecha">2026-05-22</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=4457-38-L126" target="_blank" class="cod-link">4457-38-L126</a></td><td class="col-nom">SERVICIO DE MANTENCION BOMBAS DE AGUAS Y MANTENCION DE CALETAS ESTABLECIMIENTOS DE SALUD MUNICIPAL<div class="desc">SERVICIO DE MANTENCION BOMBAS DE AGUAS Y MANTENCION DE CALETAS ESTABLECIMIENTOS DE SALUD MUNICIPAL
+  <div class="urgentes-outer">
+    <div class="urgentes-titulo">⚠ Cierran esta semana (117)</div>
+    <div class="urgentes-scroll">
+      <table width="100%" style="border-collapse:collapse">
+        <thead><tr>
+          <th class="urg-th">Código</th><th class="urg-th">Nombre</th>
+          <th class="urg-th">Organismo</th><th class="urg-th">Días</th>
+          <th class="urg-th">Cierre</th>
+        </tr></thead>
+        <tbody><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1402-4-L126" target="_blank" class="cod-link">1402-4-L126</a></td><td class="col-nom">CP RANCAGUA, SERVICIO DE TRANSPORTE DE PASAJEROS MUJERES RECLUIDAS EMBARAZADAS O CON HIJOS EN PERIODO DE LACTANCIA DE ENTRE 0-24 MESES .<div class="desc">VER ESPECIFICACIONES TECNICAS ADJUNTAS</div></td><td>DIRECCION GENERAL DE GENDARMERIA DE CHIL<div class="region">Región del Libertador General Bernardo O´Higgins</div></td><td class="col-fecha"><span class="dias-hoy">🔴 HOY</span></td><td class="col-fecha">2026-05-22</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=3179-20-LE26" target="_blank" class="cod-link">3179-20-LE26</a></td><td class="col-nom">MANTA DE AGUA IMPERMEABLE<div class="desc">MANTA DE AGUA IMPERMEABLE</div></td><td>DIRECCION DE LOGISTICA DE CARABINEROS<div class="region">Región Metropolitana de Santiago</div></td><td class="col-fecha"><span class="dias-hoy">🔴 HOY</span></td><td class="col-fecha">2026-05-22</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=4457-38-L126" target="_blank" class="cod-link">4457-38-L126</a></td><td class="col-nom">SERVICIO DE MANTENCION BOMBAS DE AGUAS Y MANTENCION DE CALETAS ESTABLECIMIENTOS DE SALUD MUNICIPAL<div class="desc">SERVICIO DE MANTENCION BOMBAS DE AGUAS Y MANTENCION DE CALETAS ESTABLECIMIENTOS DE SALUD MUNICIPAL
 SOLICITUD DE ADQUISIC</div></td><td>I MUNICIPALIDAD DE HUALQUI<div class="region">Región del Biobío </div></td><td class="col-fecha"><span class="dias-hoy">🔴 HOY</span></td><td class="col-fecha">2026-05-22</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1626-10-L126" target="_blank" class="cod-link">1626-10-L126</a></td><td class="col-nom">Convenio de suministro de envases de colación desechables y agua mineral<div class="desc">Convenio de suministro de envases de colación desechables y agua mineral.
 Necesario para la elaboración de raciones alim</div></td><td>Hospital de Lolol<div class="region">Región del Libertador General Bernardo O´Higgins</div></td><td class="col-fecha"><span class="dias-hoy">🔴 HOY</span></td><td class="col-fecha">2026-05-22</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=3637-25-LE26" target="_blank" class="cod-link">3637-25-LE26</a></td><td class="col-nom">DISPOSICIÓN FINAL AGUAS SERVIDAS VILLA PUNTA DELGA<div class="desc">La Ilustre Municipalidad de San Gregorio requiere contratar el servicio de retiro, transporte y disposición final de agu</div></td><td>ILUSTRE MUNICIPALIDAD DE SAN GREGORIO<div class="region">Región de Magallanes y de la Antártica</div></td><td class="col-fecha"><span class="dias-hoy">🔴 HOY</span></td><td class="col-fecha">2026-05-22</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=805-12-LE26" target="_blank" class="cod-link">805-12-LE26</a></td><td class="col-nom">“Nidos Lingüísticos en Educación Parvularia<div class="desc">Desarrollar experiencias educativas de revitalización de las lenguas indígenas a través de la implementación de nidos li</div></td><td>CORP NACIONAL DE DESARROLLO INDIGENA<div class="region">Región Metropolitana de Santiago</div></td><td class="col-fecha"><span class="dias-hoy">🔴 HOY</span></td><td class="col-fecha">2026-05-22</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=806-12-LE26" target="_blank" class="cod-link">806-12-LE26</a></td><td class="col-nom">AT PARA BENEFICIARIOS DEL APOYO PREDIOS 2026<div class="desc">Otorgar apoyo técnico en la ejecución de los proyectos, charlas en temáticas productivas, derecho indígena y desarrollo </div></td><td>CORP NACIONAL DE DESARROLLO INDIGENA<div class="region">Región del Biobío </div></td><td class="col-fecha"><span class="dias-hoy">🔴 HOY</span></td><td class="col-fecha">2026-05-22</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1085111-11-LE26" target="_blank" class="cod-link">1085111-11-LE26</a></td><td class="col-nom">ASESORIA TECNIC CONTROL GESTION OBRAS URBANIZACION<div class="desc">CONTRATA EL SERVICIO PROFESIONAL DE ASESORIA TECNICA PARA OBRAS DE URBANIZACION, PROFESIONAL CONTROL DE GESTION, PARA SE</div></td><td>SERVICIO DE VIVIENDA Y URBANIZACION REGION ÑUBLE<div class="region">Región del Ñuble</div></td><td class="col-fecha"><span class="dias-hoy">🔴 HOY</span></td><td class="col-fecha">2026-05-22</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1232837-12-LE26" target="_blank" class="cod-link">1232837-12-LE26</a></td><td class="col-nom">SUMINISTRO ANUAL DE EXTRACCIÓN DE AGUAS RESIDUALES<div class="desc">La presente licitación tiene por objeto contratar, bajo la modalidad de contrato de suministro a demanda, los servicios </div></td><td>CORPORACION MUNICIPAL DE FOMENTO   PRODUCTIVO DE ARICA<div class="region">Región de Arica y Parinacota</div></td><td class="col-fecha"><span class="dias-hoy">🔴 HOY</span></td><td class="col-fecha">2026-05-22</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=3730-49-L126" target="_blank" class="cod-link">3730-49-L126</a></td><td class="col-nom">INSTALACIÓN DE DOS PUNTOS DE HIDRATACIÓN TIPO BEBEDERO EN PLAZA DE ARMAS<div class="desc">CONTRATACIÓN PARA LA PROVISIÓN E INSTALACIÓN DE DOS PUNTOS DE HIDRATACIÓN TIPO BEBEDERO EN PLAZA DE ARMAS, INCLUYENDO OB</div></td><td>I MUNICIPALIDAD DE CHIMBARONGO<div class="region">Región del Libertador General Bernardo O´Higgins</div></td><td class="col-fecha"><span class="dias-hoy">🔴 HOY</span></td><td class="col-fecha">2026-05-22</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=539119-43-CO26" target="_blank" class="cod-link">539119-43-CO26</a></td><td class="col-nom">PROYECTO DE ESTUDIO Y PERMISOS SECTORIALES PARA CENTRO RECREACIONAL Y LOGÍSTICO EN SAN PEDRO DE ATACAMA DEPENDIENTE DEL DEPARTAMENTO RECREACIONAL Y GASTRONÓMICO B.1<div class="desc">PROYECTO DE ESTUDIO Y PERMISOS SECTORIALES, PARA CENTRO RECREACIONAL Y LOGÍSTICO EN SAN PEDRO DE ATACAMA, DEPENDIENTE DE</div></td><td>DIRECCION DE LOGISTICA DE CARABINEROS<div class="region">Región de Atacama </div></td><td class="col-fecha"><span class="dias-hoy">🔴 HOY</span></td><td class="col-fecha">2026-05-22</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=4404-29-LE26" target="_blank" class="cod-link">4404-29-LE26</a></td><td class="col-nom">CONTRATACION DEL SERVICIO DE MANTENCIÓN Y REPARACIÓN DE PLANTAS DE TRATAMIENTO DE AGUAS SERVIDAS PARA ESCUELAS DE LA COMUNA SAN CLEMENTE<div class="desc">CONTRATACION DEL SERVICIO DE MANTENCIÓN Y REPARACIÓN DE PLANTAS DE TRATAMIENTO DE AGUAS SERVIDAS PARA ESCUELAS DE LA COM</div></td><td>I MUNICIPALIDAD DE SAN CLEMENTE<div class="region">Región del Maule </div></td><td class="col-fecha"><span class="dias-hoy">🔴 HOY</span></td><td class="col-fecha">2026-05-22</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=966131-25-LE26" target="_blank" class="cod-link">966131-25-LE26</a></td><td class="col-nom">Servicio de Monitoreo calidad de lixiviados y aguas subterráneas periodo 2026<div class="desc">La Ilustre Municipalidad de Castro requiere contratar Servicio de Monitoreo  calidad de lixiviados y aguas subterráneas </div></td><td>I MUNICIPALIDAD DE CASTRO<div class="region">Región de los Lagos </div></td><td class="col-fecha"><span class="dias-hoy">🔴 HOY</span></td><td class="col-fecha">2026-05-22</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=889-6-LE26" target="_blank" class="cod-link">889-6-LE26</a></td><td class="col-nom">Servicio de Transporte marítimo DGA Magallanes<div class="desc">Se requiere contratar el servicio de transporte para acceder a 5 estaciones ubicadas en los fiordos occidentales del Cam</div></td><td>MINISTERIO DE OBRAS PUBLICAS DIREC CION GRAL DE OO PP DCYF<div class="region">Región de Magallanes y de la Antártica</div></td><td class="col-fecha"><span class="dias-hoy">🔴 HOY</span></td><td class="col-fecha">2026-05-22</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=738-1-LP26" target="_blank" class="cod-link">738-1-LP26</a></td><td class="col-nom">ADQUIS.DISTR. SUPLEMENTO ALIMENT CABRAS ATACAMA<div class="desc">Se requiere la contratación de servicios de adquisición y distribución todo incluido de suplemento alimenticio en las co</div></td><td>INSTITUTO DE DESARROLLO AGROPECUARIO<div class="region">Región de Atacama </div></td><td class="col-fecha"><span class="dias-hoy">🔴 HOY</span></td><td class="col-fecha">2026-05-22</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1555-54-LE26" target="_blank" class="cod-link">1555-54-LE26</a></td><td class="col-nom">SUMINISTRO DE FILTRO DE AGUA ABSOLUTO DE 0.2 MICRO<div class="desc">SUMINISTRO DE FILTRO DE AGUA ABSOLUTO DE 0.2 MICRONES, COMPATIBLE CON REPROCESADORA ENDOCLENS NSX PARA LA UNIDAD DE ENDO</div></td><td>HOSPITAL PROVINCIAL   DEL HUASCO MSR FERNANDO ARIZTIA RUIZ<div class="region">Región de Atacama </div></td><td class="col-fecha"><span class="dias-hoy">🔴 HOY</span></td><td class="col-fecha">2026-05-22</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=765-7-LE26" target="_blank" class="cod-link">765-7-LE26</a></td><td class="col-nom">Plan de Administración y Manejo ECMPO ANTILKO<div class="desc">Elaborar el Plan de Adm. y Manejo del ECMPO ANTILKO y desarrollar un proceso instituciones proceso informativo de la Ley</div></td><td>CORP NACIONAL DE DESARROLLO INDIGENA<div class="region">Región de la Araucanía </div></td><td class="col-fecha"><span class="dias-hoy">🔴 HOY</span></td><td class="col-fecha">2026-05-22</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=975-18-LP26" target="_blank" class="cod-link">975-18-LP26</a></td><td class="col-nom">SERVICIO DE CONTROL GESTIÓN OPERACIÓN VIGILANCIA Y MONITOREO EMBALSE VALLE HERMOSO REGIÓN DE COQUIMBO PERÍODO 2026-2027<div class="desc">La Dirección de Obras Hidráulicas (en adelante, DOH), requiere contratar el servicio denominado:                        </div></td><td>MINISTERIO DE OBRAS PUBLICAS DIREC CION GRAL DE OO PP DCYF<div class="region">Región Metropolitana de Santiago</div></td><td class="col-fecha"><span class="dias-hoy">🔴 HOY</span></td><td class="col-fecha">2026-05-22</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1549-29-LP26" target="_blank" class="cod-link">1549-29-LP26</a></td><td class="col-nom">CENTRAL MODULAR DE CONDENSACION AGUA CALIENTE<div class="desc">ARRIENDO DE CENTRAL MODULAR DE CONDENSACION PARA PRODUCCION DE AGUA CALIENTE SANITARIA ACS Y DE CALEFACCION ACC PARA INS</div></td><td>SERVICIO DE SALUD METROPOLITANA NORTE HOSPITAL SAN JOSE<div class="region">Región Metropolitana de Santiago</div></td><td class="col-fecha"><span class="dias-hoy">🔴 HOY</span></td><td class="col-fecha">2026-05-22</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=928-15-LR26" target="_blank" class="cod-link">928-15-LR26</a></td><td class="col-nom">SERVICIO DE MANTENCION DE AGUAS Y DESHUMIFICADORES DEL CENTRO ACUATICO KRISTEL KOBRICH PISCINA DE LA RESIDENCIA Y LA CRIOTERAPIA<div class="desc">SEGUN ADJUNTO </div></td><td>INSTITUTO NACIONAL DE DEPORTES DE CHILE<div class="region">Región Metropolitana de Santiago</div></td><td class="col-fecha"><span class="dias-hoy">🔴 HOY</span></td><td class="col-fecha">2026-05-22</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=4055-37-L126" target="_blank" class="cod-link">4055-37-L126</a></td><td class="col-nom">SUM. DE REPUESTOS Y REPARACIÓN SISTEMA HIDRÁULICO<div class="desc">SUMINISTRO DE REPUESTOS Y REPARACIÓN DE SISTEMA HIDRÁULICO, PARA VEHICULOS MENORES, MAYORES Y MAQUINARIAS PESADAS MUNICI</div></td><td>I MUNICIPALIDAD DE YUMBEL<div class="region">Región del Biobío </div></td><td class="col-fecha">🔴 3 días</td><td class="col-fecha">2026-05-25</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1057543-28-L126" target="_blank" class="cod-link">1057543-28-L126</a></td><td class="col-nom">Reposición de canal agua lluvia edificio administrativo<div class="desc">Se requiere Reposición de canal agua lluvia edificio administrativo y trabajos pertinentes para la recuperación de imper</div></td><td>SERVICIO DE SALUD TALCAHUANO HOSPITAL DE<div class="region">Región del Biobío </div></td><td class="col-fecha">🔴 3 días</td><td class="col-fecha">2026-05-25</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=2395-15-L126" target="_blank" class="cod-link">2395-15-L126</a></td><td class="col-nom">(Sol. Ped. 482) Limpieza y mantencion de techumbre , canaletas y bajadas de agua de Recintos de Salud,<div class="desc"> Limpieza y mantencion de techumbre , canaletas y bajadas de agua de Recintos de Salud, SEGÚN BASES </div></td><td>I MUNICIPALIDAD PEDRO AGUIRRE CERDA<div class="region">Región Metropolitana de Santiago</div></td><td class="col-fecha">🔴 3 días</td><td class="col-fecha">2026-05-25</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=591376-3-LE26" target="_blank" class="cod-link">591376-3-LE26</a></td><td class="col-nom">Ser. de Apoyo y ejecución programa  Riego<div class="desc">Se requiere contratar los servicios de un profesional Ingeniero Agrónomo con una formación de al menos 10 semestres de d</div></td><td>INSTITUTO DE DESARROLLO AGROPECUARIO<div class="region">Región de Los Ríos</div></td><td class="col-fecha">🔴 3 días</td><td class="col-fecha">2026-05-25</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=776-14-LE26" target="_blank" class="cod-link">776-14-LE26</a></td><td class="col-nom">SERVICIO DE LIMPIEZA Y EXTRACCIÓN DE AGUAS SERVIDA<div class="desc">La presente licitación tiene por objeto contratar los servicios de “Limpieza y extracción de aguas servidas de los pozos</div></td><td>PRESIDENCIA DE LA REPUBLICA<div class="region">Región Metropolitana de Santiago</div></td><td class="col-fecha">🔴 3 días</td><td class="col-fecha">2026-05-25</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=2201-11-LE26" target="_blank" class="cod-link">2201-11-LE26</a></td><td class="col-nom">Servicio de remodelaciones oficinas INRPAC<div class="desc">Se requiere efectuar ciertas remodelaciones para habilitar oficinas para funcionarios de diversas unidades dentro del in</div></td><td>INSTITUTO NACIONAL DE REHABILITACION PEDRO AGUIRRE CERDA<div class="region">Región Metropolitana de Santiago</div></td><td class="col-fecha">🔴 3 días</td><td class="col-fecha">2026-05-25</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=924-7-LE26" target="_blank" class="cod-link">924-7-LE26</a></td><td class="col-nom">SERVICIO DE TRANSPORTE PARA UNIDAD AGUAS<div class="desc">La presente Propuesta Pública tiene por objeto contratar la prestación de servicios de transporte de personal para la Se</div></td><td>SUBSECRETARIA DE SALUD PUBLICA<div class="region">Región Metropolitana de Santiago</div></td><td class="col-fecha">🔴 3 días</td><td class="col-fecha">2026-05-25</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1057503-88-LE26" target="_blank" class="cod-link">1057503-88-LE26</a></td><td class="col-nom">Adquisición de Estanques Móviles para Almacenamiento y Suministro de Agua Tratada para el Hospital Padre Alberto Hurtado<div class="desc">El objetivo de la presente licitación es proveer de Estanques Móviles para Almacenamiento y Suministro de Agua Tratada p</div></td><td>HOSPITAL PADRE ALBERTO HURTADO<div class="region">Región Metropolitana de Santiago</div></td><td class="col-fecha">🔴 3 días</td><td class="col-fecha">2026-05-25</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=741-9-L126" target="_blank" class="cod-link">741-9-L126</a></td><td class="col-nom">ADMINISTRACION, MANTENCIÓN, VIGILANCIA, CUSTODIA, JARDINERIA, REPARACIÓN Y GASFITERIA MENOR PARA 06 CASAS VACACIONALES, UNA CASA ADMINISTRADOR/A RECEPCIÓN Y UNA BODEGA, UBICADAS EN LA LOCALIDAD DE LICAN RAY, COMUNA DE VILLARRICA <div class="desc">Contratación del Servicio de administración mantención, vigilancia, custodia, jardinería, reparación y gasfitería menor,</div></td><td>INSTITUTO DE DESARROLLO AGROPECUARIO<div class="region">Región Metropolitana de Santiago</div></td><td class="col-fecha">🔴 3 días</td><td class="col-fecha">2026-05-25</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=741-8-LE26" target="_blank" class="cod-link">741-8-LE26</a></td><td class="col-nom">SERV. ASE. PAE COOP. CAMPESINA MAPUCHE BUTACURA<div class="desc">Se requiere de la contratación de un oferente del ramo que provea los servicios de consultoría del Programa de Asociativ</div></td><td>INSTITUTO DE DESARROLLO AGROPECUARIO<div class="region">Región de la Araucanía </div></td><td class="col-fecha">🔴 3 días</td><td class="col-fecha">2026-05-25</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1350296-53-L126" target="_blank" class="cod-link">1350296-53-L126</a></td><td class="col-nom">ADQUISICIÓN DE MATERIALES PARA CONTINGENCIAS EN LAS PLANTAS DE TRATAMIENTO DE AGUAS DEL HOSPITAL ALTO HOSPICIO<div class="desc">El Hospital Alto Hospicio, mediante Formulario de Requerimiento N° 2026-508, requiere la adquisición de materiales e ins</div></td><td>HOSPITAL DE ALTO HOSPICIO<div class="region">Región Metropolitana de Santiago</div></td><td class="col-fecha">🔴 3 días</td><td class="col-fecha">2026-05-25</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=3265-39-L126" target="_blank" class="cod-link">3265-39-L126</a></td><td class="col-nom">Servicio de Extracción de Aguas Servidas a Diferen<div class="desc">La I. Municipalidad de Río Hurtado, llama a suscribir un contrato de Suministro y Servicio a través de la licitación Púb</div></td><td>I MUNICIPALIDAD DE RIO HURTADO<div class="region">Región de Coquimbo </div></td><td class="col-fecha">🔴 3 días</td><td class="col-fecha">2026-05-25</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=3443-20-LE26" target="_blank" class="cod-link">3443-20-LE26</a></td><td class="col-nom">IMPLEMENTACIÓN DE SISTEMAS DE RIEGO DRENAJE Y USO EFICIENTE DE AGUAS PREDIALES PARA POTENCIAR EL DESARROLLO PRODUCTIVO Y MEJORAR LA CALIDAD DE VIDA DE LAS FAMILIAS PARTES DE COMUNIDADES YO COMUNIDADES INDÍGENAS DE LA COMUNA DE PURRANQUE AÑO 2025<div class="desc">Se requiere el diseño, formulación y ejecución de proyectos de sistemas obras de riego y drenaje de aguas prediales para</div></td><td>I MUNICIPALIDAD DE PURRANQUE<div class="region">Región de los Lagos </div></td><td class="col-fecha">🔴 3 días</td><td class="col-fecha">2026-05-25</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=975-27-LE26" target="_blank" class="cod-link">975-27-LE26</a></td><td class="col-nom">SERV. DESEMBANQUE QDA DE RAMÓN 2026<div class="desc">La DOH, requiere contratar el servicio denominado “Servicio de Desembanque Quebrada de Ramón, Comuna de La Reina, Región</div></td><td>MINISTERIO DE OBRAS PUBLICAS DIREC CION GRAL DE OO PP DCYF<div class="region">Región Metropolitana de Santiago</div></td><td class="col-fecha">🔴 3 días</td><td class="col-fecha">2026-05-25</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=805-6-LE26" target="_blank" class="cod-link">805-6-LE26</a></td><td class="col-nom">Levantamiento participativo de información de la Región Metropolitana<div class="desc">Levantar información etnoterritorial por medio de la participación de las orgánicas indígenas presentes en la región, co</div></td><td>CORP NACIONAL DE DESARROLLO INDIGENA<div class="region">Región Metropolitana de Santiago</div></td><td class="col-fecha">🔴 3 días</td><td class="col-fecha">2026-05-25</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1085111-12-L126" target="_blank" class="cod-link">1085111-12-L126</a></td><td class="col-nom">ASESORIA TECNICA ELECTRICA CONSTRUCCION 33 LLAMADO PAV PARTICIPATIVA <div class="desc">CONTRATAR EL SERVICIO DE ASESORIA TECNICA PROFESIONAL ESPECIALIDAD ELECTRICA PARA CONSTRUCCION PROGRAMA DE PAVIMENTACION</div></td><td>SERVICIO DE VIVIENDA Y URBANIZACION REGION ÑUBLE<div class="region">Región del Ñuble</div></td><td class="col-fecha">🔴 3 días</td><td class="col-fecha">2026-05-25</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=3073-24-LE26" target="_blank" class="cod-link">3073-24-LE26</a></td><td class="col-nom">ADQUISICIÓN DE UNA MANIOBRA DE FONDEO PARA UNA BOYA DART DEL SERVICIO HIDROGRÁFICO Y OCEANOGRÁFICO DE LA ARMADA<div class="desc">Que, “S.H.O.A.”, para efectos de cumplir con sus funciones, posee Boyas detectoras de Tsunamis del tipo DART 4G y DART I</div></td><td>DIRECCION DE ABASTECIMIENTO DE LA ARMADA<div class="region">Región de Valparaíso </div></td><td class="col-fecha">🔴 3 días</td><td class="col-fecha">2026-05-25</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=805-3-LE26" target="_blank" class="cod-link">805-3-LE26</a></td><td class="col-nom">Asistencia técnica a beneficiariosas del concurso mejoramiento de las condiciones de habitabilidad de personas adultas mayores con discapacidad o enfermedades crónicas de la Región de Valparaíso año 2026.<div class="desc">Generar soporte técnico y administrativo en todas las etapas que contempla la ejecución, desarrollo y cierre del concurs</div></td><td>CORP NACIONAL DE DESARROLLO INDIGENA<div class="region">Región Metropolitana de Santiago</div></td><td class="col-fecha">🔴 3 días</td><td class="col-fecha">2026-05-25</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=739-4-L126" target="_blank" class="cod-link">739-4-L126</a></td><td class="col-nom">MANTENCIÓN DE EDIFICACIÓN Y PINTADO AGENCIA SAN ANTONIO<div class="desc">APRUEBA BASES DE LICITACIÓN PÚBLICA PARA SERVICIOS DE MANTENCIÓN DE EDIFICACIÓN Y PINTADO AGENCIA DE ÁREA DE SAN ANTONIO</div></td><td>INSTITUTO DE DESARROLLO AGROPECUARIO<div class="region">Región de Valparaíso </div></td><td class="col-fecha">🔴 3 días</td><td class="col-fecha">2026-05-25</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1057547-194-LE26" target="_blank" class="cod-link">1057547-194-LE26</a></td><td class="col-nom">CONV. ANALISIS PARAMETROS DE AGUA SER ESTERILIZACI<div class="desc">“CONVENIO DE ANALISIS DE PARAMETROS DE AGUA PARA EL SERVICIO DE ESTERILIZACION DEL HOSPITAL BASE VALDIVIA”</div></td><td>SERVICIO DE SALUD VALDIVIA HOSPITAL BASE<div class="region">Región de Los Ríos</div></td><td class="col-fecha">🔴 3 días</td><td class="col-fecha">2026-05-25</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=2600-13-LE26" target="_blank" class="cod-link">2600-13-LE26</a></td><td class="col-nom">Asesoría prof para Actualización Plan Regulador<div class="desc">Asesoría profesional correspondiente a actualización Plan Regulador Comunal y Modificación extraordinaria por artículo p</div></td><td>I MUNICIPALIDAD DE PARRAL<div class="region">Región del Maule </div></td><td class="col-fecha">🔴 3 días</td><td class="col-fecha">2026-05-25</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=4728-5-LE26" target="_blank" class="cod-link">4728-5-LE26</a></td><td class="col-nom">ASESORÍA LOGÍSTICA EN MAT. DE CIENCIA PESQUERA INT<div class="desc">Efectuar el apoyo logístico en la ejecución del proceso de asesoría científica en materias internacionales que conduce l</div></td><td>SUBSECRETARIA DE PESCA Y ACUICULTURA<div class="region">Región de Valparaíso </div></td><td class="col-fecha">🔴 3 días</td><td class="col-fecha">2026-05-25</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=807-11-LE26" target="_blank" class="cod-link">807-11-LE26</a></td><td class="col-nom">Asistencia Técnica para la Mesa Prov. Indígena<div class="desc">La CONADI requiere contratar un servicio para la ejecución del proyecto denominado “Asistencia Técnica para la Mesa Prov</div></td><td>CORP NACIONAL DE DESARROLLO INDIGENA<div class="region">Región de los Lagos </div></td><td class="col-fecha">🔴 3 días</td><td class="col-fecha">2026-05-25</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=3764-23-LE26" target="_blank" class="cod-link">3764-23-LE26</a></td><td class="col-nom">Construcción Nichos Cementerio Municipal de Nancagua<div class="desc">Contratar los servicios para ejecutar el proyecto Construcción Nichos Cementerio Municipal de Nancagua</div></td><td>I MUNICIPALIDAD DE NANCAGUA<div class="region">Región del Libertador General Bernardo O´Higgins</div></td><td class="col-fecha">🔴 3 días</td><td class="col-fecha">2026-05-25</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1966-6-O126" target="_blank" class="cod-link">1966-6-O126</a></td><td class="col-nom">Obras de Conservación operacional Embalse Caritaya.<div class="desc">Obras de Conservación operacional Embalse Caritaya.</div></td><td>MINISTERIO DE OBRAS PUBLICAS DIREC CION GRAL DE OO PP DCYF<div class="region">Región de Arica y Parinacota</div></td><td class="col-fecha">🔴 3 días</td><td class="col-fecha">2026-05-25</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=740-8-LE26" target="_blank" class="cod-link">740-8-LE26</a></td><td class="col-nom">SERV. DE ASEO Y MANTENCION INDAP REGION DEL MAULE<div class="desc">Se requiere de la contratación de un oferente del ramo que provea los Servicios de “Aseo y Mantención para las Oficinas </div></td><td>INSTITUTO DE DESARROLLO AGROPECUARIO<div class="region">Región del Maule </div></td><td class="col-fecha">🔴 3 días</td><td class="col-fecha">2026-05-25</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=882-1-LP26" target="_blank" class="cod-link">882-1-LP26</a></td><td class="col-nom">SERVICIO DISTRIBUCION AGUA POTABLE - CAMION ALJIBE<div class="desc">CONTRATAR EL SERVICIO DE DISTRIBUCIÓN DE AGUA POTABLE EN VEHÍCULOS ALJIBES PARA LA REGION DEL LIBERTADOR BERNARDO OHIGGI</div></td><td>DELEGACIÓN PRESIDENCIAL REGIONAL DEL LIBERTADOR BERNARDO  O´HIGGINS<div class="region">Región del Libertador General Bernardo O´Higgins</div></td><td class="col-fecha">🔴 3 días</td><td class="col-fecha">2026-05-25</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=802-7-LP26" target="_blank" class="cod-link">802-7-LP26</a></td><td class="col-nom">Reg. y constit. derechos de aguas Atacama 2026<div class="desc">Regularizar y constituir derechos de aprovechamiento de aguas en favor de personas, comunidades y parte de comunidades i</div></td><td>CORP NACIONAL DE DESARROLLO INDIGENA<div class="region">Región de Tarapacá  </div></td><td class="col-fecha">🔴 3 días</td><td class="col-fecha">2026-05-25</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=765-6-LE26" target="_blank" class="cod-link">765-6-LE26</a></td><td class="col-nom">ELAB. PLAN DE ADM. Y MANEJO ECMPO ISLA TRAIGUEN<div class="desc">Elaboración Plan de Administración y manejo del ECMPO Isla Traiguén y Proceso Informativo Ley 20.249, comuna de Aysén, R</div></td><td>CORP NACIONAL DE DESARROLLO INDIGENA<div class="region">Región de la Araucanía </div></td><td class="col-fecha">🔴 3 días</td><td class="col-fecha">2026-05-25</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=2175-5-LP26" target="_blank" class="cod-link">2175-5-LP26</a></td><td class="col-nom">SERVICIO DE MANTENCIÓN DE SISTEMAS DE IMPULSIÓN DE AGUA POTABLE Y SERVIDA DE LA JURISDICCIÓN DE ATACAMA<div class="desc">SERVICIO DE MANTENCIÓN DE SISTEMAS DE IMPULSIÓN DE AGUA POTABLE Y SERVIDA DE LA JURISDICCIÓN DE ATACAMA</div></td><td>CORP ADMINISTRATIVA DEL PODER JUDICIAL<div class="region">Región de Atacama </div></td><td class="col-fecha">🔴 3 días</td><td class="col-fecha">2026-05-25</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1369-2-O126" target="_blank" class="cod-link">1369-2-O126</a></td><td class="col-nom">ASESORIA A LA INSPECCION FISCAL CGM TALTAL NORTE<div class="desc">ASESORIA A LA INSPECCION FISCAL CONSERVACIÓN GLOBAL MIXTO POR NIVEL DE SERVICIO Y POR PRECIOS UNITARIOS DE CAMINOS DE LA</div></td><td>MINISTERIO DE OBRAS PUBLICAS DIREC CION GRAL DE OO PP DCYF<div class="region">Región de Antofagasta </div></td><td class="col-fecha">🔴 3 días</td><td class="col-fecha">2026-05-25</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1369-3-O126" target="_blank" class="cod-link">1369-3-O126</a></td><td class="col-nom">ASESORIA A LA INSPECCION FISCAL CGM TALTAL SUR<div class="desc">ASESORIA A LA INSPECCION FISCAL CONSERVACIÓN GLOBAL MIXTO POR NIVEL DE SERVICIO Y POR PRECIOS UNITARIOS DE CAMINOS DE LA</div></td><td>MINISTERIO DE OBRAS PUBLICAS DIREC CION GRAL DE OO PP DCYF<div class="region">Región de Antofagasta </div></td><td class="col-fecha">🔴 3 días</td><td class="col-fecha">2026-05-25</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=2384-25-B226" target="_blank" class="cod-link">2384-25-B226</a></td><td class="col-nom">EXPEDIENTE DE LOTEO Y EJECUCIÓN DE REDES DE AGUA POTABLE SECTOR EL VERGEL CALAMA<div class="desc">El objetivo de la presente licitación es la contratación de un proveedor que ejecute, de manera integral, el proyecto de</div></td><td>I MUNICIPALIDAD DE CALAMA<div class="region">Región de Antofagasta </div></td><td class="col-fecha">🔴 3 días</td><td class="col-fecha">2026-05-25</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1171085-10-L126" target="_blank" class="cod-link">1171085-10-L126</a></td><td class="col-nom">Mantención, reparación y fabricación de rejillas canal de aguas lluvias calle Alejandro Galaz, comuna de Casablanca<div class="desc">Se requiere la mantención, reparación y fabricación de rejillas inexistentes o en mal estado que cubren el canal de agua</div></td><td>I MUNICIPALIDAD DE CASABLANCA<div class="region">Región de Valparaíso </div></td><td class="col-fecha">🔴 4 días</td><td class="col-fecha">2026-05-26</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=612227-4-LE26" target="_blank" class="cod-link">612227-4-LE26</a></td><td class="col-nom">ASESORIA PROGRAMA EDUC. BIODIVERSIDAD REGIONAL<div class="desc">ASESORÍA PARA APOYAR EL DISEÑO Y EJECUCIÓN DE UN PROGRAMA DE
 EDUCACIÓN Y SENSIBILIZACIÓN SOBRE LA BIODIVERSIDAD REGIONA</div></td><td>SUBSECRETARIA DEL MEDIO AMBIENTE<div class="region">Región de la Araucanía </div></td><td class="col-fecha">🔴 4 días</td><td class="col-fecha">2026-05-26</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1723-27-LE26" target="_blank" class="cod-link">1723-27-LE26</a></td><td class="col-nom">ESTUDIO BÁSICO: INFORME N°5 ELABORACIÓN DE INFORME PROYECTOS TERMINADOS DEL CONTRATO DE BARRIO BARRIO HUMEDAL COLLILELFU COMUNA DE LOS LAGOS REGIÓN DE LOS RÍOS<div class="desc">El objetivo principal de esta iniciativa es realizar el diseño de arquitectura y especialidades del proyecto “Construcci</div></td><td>I MUNICIPALIDAD DE LOS LAGOS<div class="region">Región de Los Ríos</div></td><td class="col-fecha">🔴 4 días</td><td class="col-fecha">2026-05-26</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1019-44-L126" target="_blank" class="cod-link">1019-44-L126</a></td><td class="col-nom">ADQUISICIÓN SOLUCIONES DE CONDUCTIVIDAD PARA LABORATORIO AMBIENTAL D.G.A.<div class="desc">Adquisición de los reactivos e insumos necesarios para el procesamiento de muestras provenientes de la red de calidad de</div></td><td>MINISTERIO DE OBRAS PUBLICAS DIREC CION GRAL DE OO PP DCYF<div class="region">Región Metropolitana de Santiago</div></td><td class="col-fecha">🔴 4 días</td><td class="col-fecha">2026-05-26</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=4037-32-LE26" target="_blank" class="cod-link">4037-32-LE26</a></td><td class="col-nom">IMPLEMENTACION DE SISTEMA DE RIEGO DRENAJE Y USO EFICIENTE DE AGUAS PREDIALES.<div class="desc">IMPLEMENTACION DE SISTEMA DE RIEGO, DRENAJE Y USO EFICIENTE DE AGUAS PREDIALES PARA POTENCIAR EL DESARROLLO PRODUCTIVO Y</div></td><td>I MUNICIPALIDAD DE FRESIA<div class="region">Región de los Lagos </div></td><td class="col-fecha">🔴 4 días</td><td class="col-fecha">2026-05-26</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=809-13-LP26" target="_blank" class="cod-link">809-13-LP26</a></td><td class="col-nom">Constitución de Goces Habitacionales R Araucanìa<div class="desc">Constituir un goce en tierras indígenas indivisas de las reconocidas en el artículo 12 de la Ley 19.253 y de los predios</div></td><td>CORP NACIONAL DE DESARROLLO INDIGENA<div class="region">Región de la Araucanía </div></td><td class="col-fecha">🔴 4 días</td><td class="col-fecha">2026-05-26</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=2178-7-LE26" target="_blank" class="cod-link">2178-7-LE26</a></td><td class="col-nom">Servicio de mantenimiento preventivo de sistema hidropack<div class="desc">Servicio de mantenimiento preventivo de sistema hidropack y bombas sanitarias para tribunales no reformados de la Jurisd</div></td><td>CORP ADMINISTRATIVA DEL PODER JUDICIAL<div class="region">Región del Biobío </div></td><td class="col-fecha">🔴 4 días</td><td class="col-fecha">2026-05-26</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=548874-48-LE26" target="_blank" class="cod-link">548874-48-LE26</a></td><td class="col-nom">SERVICIO DE MANTENCIÓN RECARGA Y PRUEBA HIDROSTÁTICA DE EXTINTORES PARA LAS DEPENDENCIAS DEL ÁREA METROPOLITANA Y CENTRO RECREACIONAL REÑACA DEL IPS<div class="desc">E102RT9 - SERVICIO DE MANTENCIÓN, RECARGA Y PRUEBA HIDROSTÁTICA DE EXTINTORES PARA LAS DEPENDENCIAS DEL ÁREA METROPOLITA</div></td><td>INSTITUTO DE PREVISION SOCIAL<div class="region">Región Metropolitana de Santiago</div></td><td class="col-fecha">🔴 4 días</td><td class="col-fecha">2026-05-26</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1098-21-LP26" target="_blank" class="cod-link">1098-21-LP26</a></td><td class="col-nom">Conservación de Estación Fluviométrica Río Cancosa<div class="desc">Conservación de Estación Fluviométrica Río Cancosa en el Tambo, Región de Tarapacá</div></td><td>MINISTERIO DE OBRAS PUBLICAS DIREC CION GRAL DE OO PP DCYF<div class="region">Región de Tarapacá  </div></td><td class="col-fecha">🔴 4 días</td><td class="col-fecha">2026-05-26</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=527666-7-LP26" target="_blank" class="cod-link">527666-7-LP26</a></td><td class="col-nom">Servicio de evaluación y seguimiento a obras<div class="desc">El objetivo principal de la licitación es la contratación de personas naturales o jurídicas, especialistas en la formula</div></td><td>CORP NACIONAL DE DESARROLLO INDIGENA<div class="region">Región de Los Ríos</div></td><td class="col-fecha">🔴 4 días</td><td class="col-fecha">2026-05-26</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=807-8-LP26" target="_blank" class="cod-link">807-8-LP26</a></td><td class="col-nom">Acciones de revitalización lingüística en la región de los Lagos – Año 2026<div class="desc">Promover en niños y niñas el reconocimiento, valoración y respeto por la lengua y la cultura mapuche, favoreciendo el de</div></td><td>CORP NACIONAL DE DESARROLLO INDIGENA<div class="region">Región de los Lagos </div></td><td class="col-fecha">🔴 4 días</td><td class="col-fecha">2026-05-26</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1063487-10-O126" target="_blank" class="cod-link">1063487-10-O126</a></td><td class="col-nom">DISEÑO DE INGENIERÍA MEJORAMIENTO Y AMPLIACIÓN SSR EL CARDAL <div class="desc">DISEÑO DE INGENIERÍA MEJORAMIENTO Y AMPLIACIÓN SERVICIO SANITARIO RURAL EL CARDAL, COMUNA DE YUNGAY</div></td><td>MINISTERIO DE OBRAS PUBLICAS DIREC CION GRAL DE OO PP DCYF<div class="region">Región del Ñuble</div></td><td class="col-fecha">🔴 4 días</td><td class="col-fecha">2026-05-26</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1505-2-O126" target="_blank" class="cod-link">1505-2-O126</a></td><td class="col-nom">CONSTRUCCIÓN DE FUENTE SSR PUMANQUE, COMUNA DE PUMANQUE, REGIÓN DE OHIGGIN<div class="desc">CONSTRUCCIÓN DE FUENTE SSR PUMANQUE, COMUNA DE PUMANQUE, REGIÓN DE OHIGGINS</div></td><td>MINISTERIO DE OBRAS PUBLICAS DIREC CION GRAL DE OO PP DCYF<div class="region">Región del Libertador General Bernardo O´Higgins</div></td><td class="col-fecha">🔴 4 días</td><td class="col-fecha">2026-05-26</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1035-9-L126" target="_blank" class="cod-link">1035-9-L126</a></td><td class="col-nom">SERVICIOS PROFESIONALES PARA LA ELABORACIÓN Y TRAMITACIÓN DE PLANES DE MANEJO DE BOSQUE NATIVO EN PREDIOS DE PEQUEÑOS, MEDIANOS Y OTROS PROPIETARIOS EN LAS PROVINCIAS DE CACHAPOAL, COLCHAGUA,<div class="desc">“Servicios profesionales para la elaboración y tramitación de Planes de Manejo de Bosque Nativo en predios de pequeños, </div></td><td>CORP NACIONAL FORESTAL<div class="region">Región del Libertador General Bernardo O´Higgins</div></td><td class="col-fecha">🔴 5 días</td><td class="col-fecha">2026-05-27</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=804-2-LE26" target="_blank" class="cod-link">804-2-LE26</a></td><td class="col-nom">Actividades de revitalización cultural en escuelas<div class="desc">Servicios para coordinación y ejecución de actividades escolares para fortalecer el rescate y revitalización del idioma </div></td><td>CORP NACIONAL DE DESARROLLO INDIGENA<div class="region">Región de Valparaíso </div></td><td class="col-fecha">🔴 5 días</td><td class="col-fecha">2026-05-27</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=2318-45-LE26" target="_blank" class="cod-link">2318-45-LE26</a></td><td class="col-nom">LIMPIEZA COLECTORES CON HIDROJET<div class="desc">SE REQUIERE LIMPIEZA COLECTORES DE AGUAS LLUVIAS MEDIANTE CAMIÓN HIDROJET EN DISTINTOS PUNTOS EN SAN JAVIER URBANO.</div></td><td>I MUNICIPALIDAD DE SAN JAVIER<div class="region">Región del Maule </div></td><td class="col-fecha">🔴 5 días</td><td class="col-fecha">2026-05-27</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=527666-8-LE26" target="_blank" class="cod-link">527666-8-LE26</a></td><td class="col-nom">Servicio de solicitudes yo regularizaciones<div class="desc">Asesoria  para las solicitudes yo regularizaciones de derechos de aprovechamientos de aguas para indigenas region de Los</div></td><td>CORP NACIONAL DE DESARROLLO INDIGENA<div class="region">Región de Los Ríos</div></td><td class="col-fecha">🔴 5 días</td><td class="col-fecha">2026-05-27</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=2171-4-LE26" target="_blank" class="cod-link">2171-4-LE26</a></td><td class="col-nom">Serv. Mantenimiento Hidropack y Estanques de Agua<div class="desc">Mantenimiento preventivo y correctivo Hidropack y Estanque de agua
 Res. 1016 (08-05-2026)
 US SSGG item  MP. 2206005001</div></td><td>HOSPITAL SAN AGUSTIN DE LA LIGUA<div class="region">Región de Valparaíso </div></td><td class="col-fecha">🔴 5 días</td><td class="col-fecha">2026-05-27</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=975-20-O126" target="_blank" class="cod-link">975-20-O126</a></td><td class="col-nom">AIF OOCC CONSERVACIÓN CANAL MATRIZ COGOTÍ, COQUIMBO, ETAPA 2<div class="desc">ASESORÍA TÉCNICA Y ADMINISTRATIVA A LA INSPECCIÓN FISCAL PARA EL CONTRATO “OBRAS COMPLEMENTARIAS DE CONSERVACIÓN SISTEMA</div></td><td>MINISTERIO DE OBRAS PUBLICAS DIREC CION GRAL DE OO PP DCYF<div class="region">Región de Coquimbo </div></td><td class="col-fecha">🔴 5 días</td><td class="col-fecha">2026-05-27</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1501468-13-LP26" target="_blank" class="cod-link">1501468-13-LP26</a></td><td class="col-nom">MATERIAL DIDACTICO EE.EE SLEP DEL ACONCAGUA<div class="desc">LLAMADO A LICITACIÓN PÚBLICA Y APRUEBA BASES ADMINISTRATIVAS, BASES TÉCNICAS Y ANEXOS PARA CONTRATAR CONVENIO DE SUMINIS</div></td><td>SERVICIO LOCAL DE EDUCACIÓN PÚBLICA ACONCAGUA<div class="region">Región de Valparaíso </div></td><td class="col-fecha">🔴 5 días</td><td class="col-fecha">2026-05-27</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=2421-12-LE26" target="_blank" class="cod-link">2421-12-LE26</a></td><td class="col-nom">MANTENCIÓN ESTANQUES DE AGUA BOMBAS Y CLORACION<div class="desc">La iniciativa tiene por objeto asegurar el suministro continuo, seguro y eficiente de agua potable, mediante la provisió</div></td><td>I MUNICIPALIDAD DE CONCEPCION<div class="region">Región del Biobío </div></td><td class="col-fecha">🔴 5 días</td><td class="col-fecha">2026-05-27</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=932-14-LP26" target="_blank" class="cod-link">932-14-LP26</a></td><td class="col-nom">CONTRATACIÓN SERVICIOS DE SALVAVIDAS Y PROFESIONALES DE LA SALUD PARA EL CENTRO DEPORTIVO COMUNITARIO DE RANCAGUA Y SU PISCINA TEMPERADA HASTA SEPTIEMBRE DEL 2027.-<div class="desc">EL IND DE RANCAGUA, REQUIERE LA CONTRATACIÓN SERVICIOS
 DE SALVAVIDAS Y PROFESIONALES DE LA SALUD PARA EL CENTRO DEPORTI</div></td><td>INSTITUTO NACIONAL DE DEPORTES DE CHILE<div class="region">Región del Libertador General Bernardo O´Higgins</div></td><td class="col-fecha">🔴 5 días</td><td class="col-fecha">2026-05-27</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1506-5-O126" target="_blank" class="cod-link">1506-5-O126</a></td><td class="col-nom">CONSERVACION DE RIBERAS Y ENCAUZAMIENTO VARIOS CAUCES REGIÓN DEL MAULE 2026<div class="desc">CONSERVACION DE RIBERAS Y ENCAUZAMIENTO VARIOS CAUCES REGIÓN DEL MAULE 2026</div></td><td>MINISTERIO DE OBRAS PUBLICAS DIREC CION GRAL DE OO PP DCYF<div class="region">Región del Maule </div></td><td class="col-fecha">🔴 5 días</td><td class="col-fecha">2026-05-27</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=807-4-LP26" target="_blank" class="cod-link">807-4-LP26</a></td><td class="col-nom">Dru provincias de Chiloé y Palena año 2026.<div class="desc">Entregar un ordenamiento delimitado a las comunidades o personas indígenas a través de subdivisiones de hecho en la regi</div></td><td>CORP NACIONAL DE DESARROLLO INDIGENA<div class="region">Región de los Lagos </div></td><td class="col-fecha">🔴 5 días</td><td class="col-fecha">2026-05-27</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=3595-11-LE26" target="_blank" class="cod-link">3595-11-LE26</a></td><td class="col-nom">REP. INFILTRACIÓN SISTEMA DE TTO. AGUAS RESIDUALES<div class="desc">Podrán participar en la presente licitación todas las personas naturales o jurídicas, así como las uniones temporales de</div></td><td>ILUSTRE MUNICIPALIDAD DE RIO VERDE<div class="region">Región de Magallanes y de la Antártica</div></td><td class="col-fecha">🔴 5 días</td><td class="col-fecha">2026-05-27</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=3489-20-LP26" target="_blank" class="cod-link">3489-20-LP26</a></td><td class="col-nom">ABASTO DE AGUA POTABLE LAS TRIACAS SUR NVA IMP.<div class="desc">ABASTO DE AGUA POTABLE LAS TRIACAS SUR, CONSISTE EN LA CONSTRUCCIÓN DE POZOS E INSTALACIÓN DE PANELES FOTOVOLTAICOS CON </div></td><td>I MUNICIPALIDAD DE NUEVA IMPERIAL<div class="region">Región de la Araucanía </div></td><td class="col-fecha">🔴 5 días</td><td class="col-fecha">2026-05-27</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1503-14-O126" target="_blank" class="cod-link">1503-14-O126</a></td><td class="col-nom">OBRAS DE CONSERVACION SSR LIMARÍ, COMUNA DE OVALLE, AÑO 2026<div class="desc">OBRAS DE CONSERVACION SSR LIMARÍ, COMUNA DE OVALLE, AÑO 2026</div></td><td>MINISTERIO DE OBRAS PUBLICAS DIREC CION GRAL DE OO PP DCYF<div class="region">Región de Coquimbo </div></td><td class="col-fecha">🔴 5 días</td><td class="col-fecha">2026-05-27</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1063487-11-O126" target="_blank" class="cod-link">1063487-11-O126</a></td><td class="col-nom">DISEÑO DE INGENIERÍA MEJORAMIENTO Y AMPLIACIÓN SSR MONTE BLANCO<div class="desc">DISEÑO DE INGENIERÍA MEJORAMIENTO Y AMPLIACIÓN SSR MONTE BLANCO, COMUNA DE SAN  CARLOS</div></td><td>MINISTERIO DE OBRAS PUBLICAS DIREC CION GRAL DE OO PP DCYF<div class="region">Región del Ñuble</div></td><td class="col-fecha">🔴 5 días</td><td class="col-fecha">2026-05-27</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=739-2-LP26" target="_blank" class="cod-link">739-2-LP26</a></td><td class="col-nom">SERVICIOS DEL PROGRAMA PDTI ISLA DE PASCUA 2026.<div class="desc">SERVICIOS DE ENTIDAD EJECUTORA DEL PROGRAMA DE DESARROLLO
-TERRITORIAL INDÍGENA INDAP-CONADI RAPA NUI 2026.</div></td><td>INSTITUTO DE DESARROLLO AGROPECUARIO<div class="region">Región de Valparaíso </div></td><td class="col-fecha">🔴 5 días</td><td class="col-fecha">2026-05-27</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=5663-2-O126" target="_blank" class="cod-link">5663-2-O126</a></td><td class="col-nom">ESTUDIO HIDROGEOLÓGICO LAONZANA, COMUNA DE HUARA, 3 LLAMADO<div class="desc">ESTUDIO HIDROGEOLÓGICO REPOSICIÓN CON AMPLIACIÓN SISTEMA DE SERVICIO SANITARIO RURAL DE LAONZANA, TERCER LLAMADO.</div></td><td>MINISTERIO DE OBRAS PUBLICAS DIREC CION GRAL DE OO PP DCYF<div class="region">Región de Tarapacá  </div></td><td class="col-fecha">🔴 5 días</td><td class="col-fecha">2026-05-27</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=662237-16-LR26" target="_blank" class="cod-link">662237-16-LR26</a></td><td class="col-nom">XVII Estudio Nacional de Drogas Pob. General<div class="desc">El Servicio Nacional para la Prevención y Rehabilitación del Consumo de Drogas y Alcohol, en adelante el SENDA, requiere</div></td><td>SERVICIO NACIONAL PARA LA PREVENCION Y REHABILITACION DEL CONSUMO DE D<div class="region">Región Metropolitana de Santiago</div></td><td class="col-fecha">🔴 5 días</td><td class="col-fecha">2026-05-27</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1002588-65-LE26" target="_blank" class="cod-link">1002588-65-LE26</a></td><td class="col-nom">Asesoría inspección técnica de obra Rep. Grecia<div class="desc">Servicio de asesoría técnica de inspección técnica de obra</div></td><td>SERVICIO LOCAL DE EDUCACION DE PUERTO CORDILLERA<div class="region">Región de Coquimbo </div></td><td class="col-fecha">🟡 6 días</td><td class="col-fecha">2026-05-28</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1002588-64-LE26" target="_blank" class="cod-link">1002588-64-LE26</a></td><td class="col-nom">Asesoría inspección técnica de obra Juan Sandoval<div class="desc">Servicio de asesoría de inspección técnica de obraAITO para la escuela Juan Sandoval</div></td><td>SERVICIO LOCAL DE EDUCACION DE PUERTO CORDILLERA<div class="region">Región de Coquimbo </div></td><td class="col-fecha">🟡 6 días</td><td class="col-fecha">2026-05-28</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=2436-17-LE26" target="_blank" class="cod-link">2436-17-LE26</a></td><td class="col-nom">SERVICIO ESPECIALIZADO DE ASESORIA EN SISTEMA DE GESTION ADMINISTRATIVA MUNICIPAL<div class="desc">ADMINISTRACIÓN, REQUIERE SERVICIO ESPECIALIZADO DE ASESORIA EN SISTEMA DE GESTION ADMINISTRATIVA MUNICIPAL SEGUN OF. N°1</div></td><td>I MUNICIPALIDAD DE CURICO<div class="region">Región del Maule </div></td><td class="col-fecha">🟡 6 días</td><td class="col-fecha">2026-05-28</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=2464-13-LE26" target="_blank" class="cod-link">2464-13-LE26</a></td><td class="col-nom">AQUISICIÓN TERMOFUSOR HIDRÁULICO<div class="desc">Se requiere la adquisición de un equipo termofusor hidráulico de alto rendimiento para efectuar demarcación vial en la c</div></td><td>I MUNICIPALIDAD DE QUILLOTA<div class="region">Región de Valparaíso </div></td><td class="col-fecha">🟡 6 días</td><td class="col-fecha">2026-05-28</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=2585-46-LE26" target="_blank" class="cod-link">2585-46-LE26</a></td><td class="col-nom">SERVICIO REPARACIÓN ESTANQUE DE AGUA DIPRESEH ORD N° 3772026 LSV IMA<div class="desc">SERVICIO REPARACIÓN ESTANQUE DE AGUA, DIPRESEH, ORD N° 377/2026, LSV, IMA</div></td><td>I MUNICIPALIDAD DE ARICA<div class="region">Región de Arica y Parinacota</div></td><td class="col-fecha">🟡 6 días</td><td class="col-fecha">2026-05-28</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=568963-10-LE26" target="_blank" class="cod-link">568963-10-LE26</a></td><td class="col-nom">Estudio de satisfacción de usuarios <div class="desc">Realizar un estudio que permita identificar el nivel de satisfacción alcanzado por los participantes de procesos de eval</div></td><td>COMISION DEL SISTEMA NACIONAL DE CERTIFICACION DE COMPETENCIAS LABORALES<div class="region">Región Metropolitana de Santiago</div></td><td class="col-fecha">🟡 6 días</td><td class="col-fecha">2026-05-28</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=870-6-LE26" target="_blank" class="cod-link">870-6-LE26</a></td><td class="col-nom">E1O2RT8 Renovación de licencias de software<div class="desc">La presente licitación tiene por objeto la renovación de licencias por un período de 12 meses, con el fin de asegurar la</div></td><td>COMISION NACIONAL DE RIEGO<div class="region">Región Metropolitana de Santiago</div></td><td class="col-fecha">🟡 6 días</td><td class="col-fecha">2026-05-28</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=872-17-CO26" target="_blank" class="cod-link">872-17-CO26</a></td><td class="col-nom">Agua Enriquecida<div class="desc">La Comisión Chilena de Energía Nuclear (CCHEN) requiere adquirir de Suministro de Agua Enriquecida con el isótopo establ</div></td><td>Comisión Chilena de Energía Nuclear<div class="region">Región Metropolitana de Santiago</div></td><td class="col-fecha">🟡 6 días</td><td class="col-fecha">2026-05-28</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=3073-32-LE26" target="_blank" class="cod-link">3073-32-LE26</a></td><td class="col-nom">Registradores de nivel de agua marca HOBO.<div class="desc">Registradores de nivel de agua marca HOBO, Modelo U20L-02 o equivalente técnicamente, con las características técnicas y</div></td><td>DIRECCION DE ABASTECIMIENTO DE LA ARMADA<div class="region">Región de Valparaíso </div></td><td class="col-fecha">🟡 6 días</td><td class="col-fecha">2026-05-28</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=744835-9-L126" target="_blank" class="cod-link">744835-9-L126</a></td><td class="col-nom">Estudio Hispatológico de Biopsia Diferida<div class="desc">DE ACUERDO A MEMORÁNDUM N° 1647/2026 QUE ADJUNTA SM N° L1-80-2026, EL OBJETIVO PRINCIPAL DE ESTE SERVICIO ES GARANTIZAR </div></td><td>I MUNICIPALIDAD DE LO ESPEJO<div class="region">Región Metropolitana de Santiago</div></td><td class="col-fecha">🟡 6 días</td><td class="col-fecha">2026-05-28</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=818-8-O126" target="_blank" class="cod-link">818-8-O126</a></td><td class="col-nom">Cons. Red Primarias AA.LL Punta Arenas 2026<div class="desc">El objetivo del Contrato es ejecutar la conservación de la red primaria aguas lluvias de Punta Arenas, la cual considera</div></td><td>MINISTERIO DE OBRAS PUBLICAS DIREC CION GRAL DE OO PP DCYF<div class="region">Región de Magallanes y de la Antártica</div></td><td class="col-fecha">🟡 6 días</td><td class="col-fecha">2026-05-28</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1299965-3-LE26" target="_blank" class="cod-link">1299965-3-LE26</a></td><td class="col-nom">Proyecto de evacuación de aguas lluvias<div class="desc">Contratar la ejecución de un sistema integral de evacuación de aguas lluvias para el Hogar Protegido de Nonguén, que per</div></td><td>CORPORACION SOCIAL Y CULTURA DE CONCEPCION - SEMCO<div class="region">Región del Biobío </div></td><td class="col-fecha">🟡 6 días</td><td class="col-fecha">2026-05-28</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1406-3-LP26" target="_blank" class="cod-link">1406-3-LP26</a></td><td class="col-nom">COMPRA AGUA POTABLE ALHUE Y SAN PEDRO 2 SEMESTRE<div class="desc">COMPRA DE AGUA POTABLE PARA SU DISTRIBUCIÓN EN LAS COMUNAS DE SAN PEDRO Y ALHUÉ, PROVINCIA DE MELIPILLA, REGIÓN METROPOL</div></td><td>DELEGACIÓN PRESIDENCIAL PROVINCIAL DE MELIPILLA<div class="region">Región Metropolitana de Santiago</div></td><td class="col-fecha">🟡 6 días</td><td class="col-fecha">2026-05-28</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=997-20-LP26" target="_blank" class="cod-link">997-20-LP26</a></td><td class="col-nom">100 Ton. De emulsión CQS-1H para trabajos de CAPRO para los caminos I-744-J I-576 comuna de Lolol Provincia de Colchagua perteneciente a la Dirección de Vialidad Región de OHiggins<div class="desc">100 Ton. De emulsión CQS-1H para trabajos de CAPRO para los caminos I-744-J I-576, comuna de Lolol, Provincia de Colchag</div></td><td>MINISTERIO DE OBRAS PUBLICAS DIREC CION GRAL DE OO PP DCYF<div class="region">Región del Libertador General Bernardo O´Higgins</div></td><td class="col-fecha">🟡 6 días</td><td class="col-fecha">2026-05-28</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=3477-60-LP26" target="_blank" class="cod-link">3477-60-LP26</a></td><td class="col-nom">“ABASTOS DE AGUA POTABLE SECTOR PUELLO”<div class="desc">“ABASTOS DE AGUA POTABLE SECTOR PUELLO”</div></td><td>I MUNICIPALIDAD DE VILCUN<div class="region">Región de la Araucanía </div></td><td class="col-fecha">🟡 6 días</td><td class="col-fecha">2026-05-28</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=5617-1-LP26" target="_blank" class="cod-link">5617-1-LP26</a></td><td class="col-nom">EXPLORACIÓN PUNTOS MONITOREO AGUAS SUBTERRÁNEAS<div class="desc">EXPLORACIÓN PARA LA IDENTIFICACIÓN DE PUNTOS DE MONITOREO DE AGUAS SUBTERRÁNEAS, REGIÓN DE LOS RÍOS</div></td><td>MINISTERIO DE OBRAS PUBLICAS DIREC CION GRAL DE OO PP DCYF<div class="region">Región de Los Ríos</div></td><td class="col-fecha">🟡 6 días</td><td class="col-fecha">2026-05-28</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=807-7-LP26" target="_blank" class="cod-link">807-7-LP26</a></td><td class="col-nom">Apoyo procesos de subdivisión año 2026<div class="desc">Determinar mediante apoyo profesional apoyo al proceso de regularización yo saneamiento de la tierra, subdivisión, escri</div></td><td>CORP NACIONAL DE DESARROLLO INDIGENA<div class="region">Región de los Lagos </div></td><td class="col-fecha">🟡 6 días</td><td class="col-fecha">2026-05-28</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1965-8-LE26" target="_blank" class="cod-link">1965-8-LE26</a></td><td class="col-nom">SERVICIO MANTENCIÓN HIDROPACK<div class="desc">CONTRATACION DEL SERVICIO DE MANTENCIÓN SISTEMA DE ACUMULACIÓN E IMPULSIÓN AGUA POTABLE DEL COMPLEJO PENITENCIARIO DE PU</div></td><td>DIRECCION GENERAL DE GENDARMERIA DE CHIL<div class="region">Región de Magallanes y de la Antártica</div></td><td class="col-fecha">🟡 6 días</td><td class="col-fecha">2026-05-28</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=975-4-O126" target="_blank" class="cod-link">975-4-O126</a></td><td class="col-nom">ASESORÍA PROY. DISEÑO INGENIERIA DETALLES EMBALSE BOLLENAR, COMUNA DE RENGO<div class="desc">ASESORÍA DE PROYECTO DISEÑO INGENIERÍA DE DETALLES EMBALSE BOLLENAR, COMUNA DE RENGO, REGIÓN DEL LIBERTADOR BERNARDO O’H</div></td><td>MINISTERIO DE OBRAS PUBLICAS DIREC CION GRAL DE OO PP DCYF<div class="region">Región del Libertador General Bernardo O´Higgins</div></td><td class="col-fecha">🟡 6 días</td><td class="col-fecha">2026-05-28</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1072229-24-L126" target="_blank" class="cod-link">1072229-24-L126</a></td><td class="col-nom">PROYECTO DE ASESORIA, ESTUDIO TÉCNICO, DIAGNOSTICO Y LOCALIZACIÓN DE FUENTES DE MALOS OLORES DEL SISTEMA DE ALCANTARILLADO JARDIN INFANTIL Y SALA CUNA LA HORMIGUITA DE FUNDACIÓN INTEGRA, REGIÓN DE ÑUBLE<div class="desc">Se requiere contratar un servicio de asesoría para la realización de estudio técnico, diagnóstico y localización de fuen</div></td><td>FUNDACION EDUCACIONAL PARA EL DESAROLLO INTEGRAL DE LA NIÑEZ<div class="region">Región del Ñuble</div></td><td class="col-fecha">🟡 7 días</td><td class="col-fecha">2026-05-29</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=369-6-B226" target="_blank" class="cod-link">369-6-B226</a></td><td class="col-nom">CONVENIO SUMINISTRO AGUA POTABLE PROV. CHOAPA<div class="desc">CONVENIO DE
+TERRITORIAL INDÍGENA INDAP-CONADI RAPA NUI 2026.</div></td><td>INSTITUTO DE DESARROLLO AGROPECUARIO<div class="region">Región de Valparaíso </div></td><td class="col-fecha">🔴 5 días</td><td class="col-fecha">2026-05-27</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=5663-2-O126" target="_blank" class="cod-link">5663-2-O126</a></td><td class="col-nom">ESTUDIO HIDROGEOLÓGICO LAONZANA, COMUNA DE HUARA, 3 LLAMADO<div class="desc">ESTUDIO HIDROGEOLÓGICO REPOSICIÓN CON AMPLIACIÓN SISTEMA DE SERVICIO SANITARIO RURAL DE LAONZANA, TERCER LLAMADO.</div></td><td>MINISTERIO DE OBRAS PUBLICAS DIREC CION GRAL DE OO PP DCYF<div class="region">Región de Tarapacá  </div></td><td class="col-fecha">🔴 5 días</td><td class="col-fecha">2026-05-27</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=662237-16-LR26" target="_blank" class="cod-link">662237-16-LR26</a></td><td class="col-nom">XVII Estudio Nacional de Drogas Pob. General<div class="desc">El Servicio Nacional para la Prevención y Rehabilitación del Consumo de Drogas y Alcohol, en adelante el SENDA, requiere</div></td><td>SERVICIO NACIONAL PARA LA PREVENCION Y REHABILITACION DEL CONSUMO DE D<div class="region">Región Metropolitana de Santiago</div></td><td class="col-fecha">🔴 5 días</td><td class="col-fecha">2026-05-27</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1002588-65-LE26" target="_blank" class="cod-link">1002588-65-LE26</a></td><td class="col-nom">Asesoría inspección técnica de obra Rep. Grecia<div class="desc">Servicio de asesoría técnica de inspección técnica de obra</div></td><td>SERVICIO LOCAL DE EDUCACION DE PUERTO CORDILLERA<div class="region">Región de Coquimbo </div></td><td class="col-fecha">🟡 6 días</td><td class="col-fecha">2026-05-28</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1002588-64-LE26" target="_blank" class="cod-link">1002588-64-LE26</a></td><td class="col-nom">Asesoría inspección técnica de obra Juan Sandoval<div class="desc">Servicio de asesoría de inspección técnica de obraAITO para la escuela Juan Sandoval</div></td><td>SERVICIO LOCAL DE EDUCACION DE PUERTO CORDILLERA<div class="region">Región de Coquimbo </div></td><td class="col-fecha">🟡 6 días</td><td class="col-fecha">2026-05-28</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=2436-17-LE26" target="_blank" class="cod-link">2436-17-LE26</a></td><td class="col-nom">SERVICIO ESPECIALIZADO DE ASESORIA EN SISTEMA DE GESTION ADMINISTRATIVA MUNICIPAL<div class="desc">ADMINISTRACIÓN, REQUIERE SERVICIO ESPECIALIZADO DE ASESORIA EN SISTEMA DE GESTION ADMINISTRATIVA MUNICIPAL SEGUN OF. N°1</div></td><td>I MUNICIPALIDAD DE CURICO<div class="region">Región del Maule </div></td><td class="col-fecha">🟡 6 días</td><td class="col-fecha">2026-05-28</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=2464-13-LE26" target="_blank" class="cod-link">2464-13-LE26</a></td><td class="col-nom">AQUISICIÓN TERMOFUSOR HIDRÁULICO<div class="desc">Se requiere la adquisición de un equipo termofusor hidráulico de alto rendimiento para efectuar demarcación vial en la c</div></td><td>I MUNICIPALIDAD DE QUILLOTA<div class="region">Región de Valparaíso </div></td><td class="col-fecha">🟡 6 días</td><td class="col-fecha">2026-05-28</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=2585-46-LE26" target="_blank" class="cod-link">2585-46-LE26</a></td><td class="col-nom">SERVICIO REPARACIÓN ESTANQUE DE AGUA DIPRESEH ORD N° 3772026 LSV IMA<div class="desc">SERVICIO REPARACIÓN ESTANQUE DE AGUA, DIPRESEH, ORD N° 377/2026, LSV, IMA</div></td><td>I MUNICIPALIDAD DE ARICA<div class="region">Región de Arica y Parinacota</div></td><td class="col-fecha">🟡 6 días</td><td class="col-fecha">2026-05-28</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=568963-10-LE26" target="_blank" class="cod-link">568963-10-LE26</a></td><td class="col-nom">Estudio de satisfacción de usuarios <div class="desc">Realizar un estudio que permita identificar el nivel de satisfacción alcanzado por los participantes de procesos de eval</div></td><td>COMISION DEL SISTEMA NACIONAL DE CERTIFICACION DE COMPETENCIAS LABORALES<div class="region">Región Metropolitana de Santiago</div></td><td class="col-fecha">🟡 6 días</td><td class="col-fecha">2026-05-28</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=870-6-LE26" target="_blank" class="cod-link">870-6-LE26</a></td><td class="col-nom">E1O2RT8 Renovación de licencias de software<div class="desc">La presente licitación tiene por objeto la renovación de licencias por un período de 12 meses, con el fin de asegurar la</div></td><td>COMISION NACIONAL DE RIEGO<div class="region">Región Metropolitana de Santiago</div></td><td class="col-fecha">🟡 6 días</td><td class="col-fecha">2026-05-28</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=872-17-CO26" target="_blank" class="cod-link">872-17-CO26</a></td><td class="col-nom">Agua Enriquecida<div class="desc">La Comisión Chilena de Energía Nuclear (CCHEN) requiere adquirir de Suministro de Agua Enriquecida con el isótopo establ</div></td><td>Comisión Chilena de Energía Nuclear<div class="region">Región Metropolitana de Santiago</div></td><td class="col-fecha">🟡 6 días</td><td class="col-fecha">2026-05-28</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=3073-32-LE26" target="_blank" class="cod-link">3073-32-LE26</a></td><td class="col-nom">Registradores de nivel de agua marca HOBO.<div class="desc">Registradores de nivel de agua marca HOBO, Modelo U20L-02 o equivalente técnicamente, con las características técnicas y</div></td><td>DIRECCION DE ABASTECIMIENTO DE LA ARMADA<div class="region">Región de Valparaíso </div></td><td class="col-fecha">🟡 6 días</td><td class="col-fecha">2026-05-28</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=744835-9-L126" target="_blank" class="cod-link">744835-9-L126</a></td><td class="col-nom">Estudio Hispatológico de Biopsia Diferida<div class="desc">DE ACUERDO A MEMORÁNDUM N° 1647/2026 QUE ADJUNTA SM N° L1-80-2026, EL OBJETIVO PRINCIPAL DE ESTE SERVICIO ES GARANTIZAR </div></td><td>I MUNICIPALIDAD DE LO ESPEJO<div class="region">Región Metropolitana de Santiago</div></td><td class="col-fecha">🟡 6 días</td><td class="col-fecha">2026-05-28</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=818-8-O126" target="_blank" class="cod-link">818-8-O126</a></td><td class="col-nom">Cons. Red Primarias AA.LL Punta Arenas 2026<div class="desc">El objetivo del Contrato es ejecutar la conservación de la red primaria aguas lluvias de Punta Arenas, la cual considera</div></td><td>MINISTERIO DE OBRAS PUBLICAS DIREC CION GRAL DE OO PP DCYF<div class="region">Región de Magallanes y de la Antártica</div></td><td class="col-fecha">🟡 6 días</td><td class="col-fecha">2026-05-28</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1299965-3-LE26" target="_blank" class="cod-link">1299965-3-LE26</a></td><td class="col-nom">Proyecto de evacuación de aguas lluvias<div class="desc">Contratar la ejecución de un sistema integral de evacuación de aguas lluvias para el Hogar Protegido de Nonguén, que per</div></td><td>CORPORACION SOCIAL Y CULTURA DE CONCEPCION - SEMCO<div class="region">Región del Biobío </div></td><td class="col-fecha">🟡 6 días</td><td class="col-fecha">2026-05-28</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1406-3-LP26" target="_blank" class="cod-link">1406-3-LP26</a></td><td class="col-nom">COMPRA AGUA POTABLE ALHUE Y SAN PEDRO 2 SEMESTRE<div class="desc">COMPRA DE AGUA POTABLE PARA SU DISTRIBUCIÓN EN LAS COMUNAS DE SAN PEDRO Y ALHUÉ, PROVINCIA DE MELIPILLA, REGIÓN METROPOL</div></td><td>DELEGACIÓN PRESIDENCIAL PROVINCIAL DE MELIPILLA<div class="region">Región Metropolitana de Santiago</div></td><td class="col-fecha">🟡 6 días</td><td class="col-fecha">2026-05-28</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=997-20-LP26" target="_blank" class="cod-link">997-20-LP26</a></td><td class="col-nom">100 Ton. De emulsión CQS-1H para trabajos de CAPRO para los caminos I-744-J I-576 comuna de Lolol Provincia de Colchagua perteneciente a la Dirección de Vialidad Región de OHiggins<div class="desc">100 Ton. De emulsión CQS-1H para trabajos de CAPRO para los caminos I-744-J I-576, comuna de Lolol, Provincia de Colchag</div></td><td>MINISTERIO DE OBRAS PUBLICAS DIREC CION GRAL DE OO PP DCYF<div class="region">Región del Libertador General Bernardo O´Higgins</div></td><td class="col-fecha">🟡 6 días</td><td class="col-fecha">2026-05-28</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=3477-60-LP26" target="_blank" class="cod-link">3477-60-LP26</a></td><td class="col-nom">“ABASTOS DE AGUA POTABLE SECTOR PUELLO”<div class="desc">“ABASTOS DE AGUA POTABLE SECTOR PUELLO”</div></td><td>I MUNICIPALIDAD DE VILCUN<div class="region">Región de la Araucanía </div></td><td class="col-fecha">🟡 6 días</td><td class="col-fecha">2026-05-28</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=5617-1-LP26" target="_blank" class="cod-link">5617-1-LP26</a></td><td class="col-nom">EXPLORACIÓN PUNTOS MONITOREO AGUAS SUBTERRÁNEAS<div class="desc">EXPLORACIÓN PARA LA IDENTIFICACIÓN DE PUNTOS DE MONITOREO DE AGUAS SUBTERRÁNEAS, REGIÓN DE LOS RÍOS</div></td><td>MINISTERIO DE OBRAS PUBLICAS DIREC CION GRAL DE OO PP DCYF<div class="region">Región de Los Ríos</div></td><td class="col-fecha">🟡 6 días</td><td class="col-fecha">2026-05-28</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=807-7-LP26" target="_blank" class="cod-link">807-7-LP26</a></td><td class="col-nom">Apoyo procesos de subdivisión año 2026<div class="desc">Determinar mediante apoyo profesional apoyo al proceso de regularización yo saneamiento de la tierra, subdivisión, escri</div></td><td>CORP NACIONAL DE DESARROLLO INDIGENA<div class="region">Región de los Lagos </div></td><td class="col-fecha">🟡 6 días</td><td class="col-fecha">2026-05-28</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1965-8-LE26" target="_blank" class="cod-link">1965-8-LE26</a></td><td class="col-nom">SERVICIO MANTENCIÓN HIDROPACK<div class="desc">CONTRATACION DEL SERVICIO DE MANTENCIÓN SISTEMA DE ACUMULACIÓN E IMPULSIÓN AGUA POTABLE DEL COMPLEJO PENITENCIARIO DE PU</div></td><td>DIRECCION GENERAL DE GENDARMERIA DE CHIL<div class="region">Región de Magallanes y de la Antártica</div></td><td class="col-fecha">🟡 6 días</td><td class="col-fecha">2026-05-28</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=975-4-O126" target="_blank" class="cod-link">975-4-O126</a></td><td class="col-nom">ASESORÍA PROY. DISEÑO INGENIERIA DETALLES EMBALSE BOLLENAR, COMUNA DE RENGO<div class="desc">ASESORÍA DE PROYECTO DISEÑO INGENIERÍA DE DETALLES EMBALSE BOLLENAR, COMUNA DE RENGO, REGIÓN DEL LIBERTADOR BERNARDO O’H</div></td><td>MINISTERIO DE OBRAS PUBLICAS DIREC CION GRAL DE OO PP DCYF<div class="region">Región del Libertador General Bernardo O´Higgins</div></td><td class="col-fecha">🟡 6 días</td><td class="col-fecha">2026-05-28</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=2766-83-L126" target="_blank" class="cod-link">2766-83-L126</a></td><td class="col-nom">MEDICAMENTOS GASTROINTESTINALES RESPIRATORIOS Y A<div class="desc">Proveer de medicamentos destinados a la Farmacia Municipal de la comuna de La Cisterna para garantizar la disponibilidad</div></td><td>I MUNICIPALIDAD DE LA CISTERNA<div class="region">Región Metropolitana de Santiago</div></td><td class="col-fecha">🟡 7 días</td><td class="col-fecha">2026-05-29</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1072229-24-L126" target="_blank" class="cod-link">1072229-24-L126</a></td><td class="col-nom">PROYECTO DE ASESORIA, ESTUDIO TÉCNICO, DIAGNOSTICO Y LOCALIZACIÓN DE FUENTES DE MALOS OLORES DEL SISTEMA DE ALCANTARILLADO JARDIN INFANTIL Y SALA CUNA LA HORMIGUITA DE FUNDACIÓN INTEGRA, REGIÓN DE ÑUBLE<div class="desc">Se requiere contratar un servicio de asesoría para la realización de estudio técnico, diagnóstico y localización de fuen</div></td><td>FUNDACION EDUCACIONAL PARA EL DESAROLLO INTEGRAL DE LA NIÑEZ<div class="region">Región del Ñuble</div></td><td class="col-fecha">🟡 7 días</td><td class="col-fecha">2026-05-29</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=369-6-B226" target="_blank" class="cod-link">369-6-B226</a></td><td class="col-nom">CONVENIO SUMINISTRO AGUA POTABLE PROV. CHOAPA<div class="desc">CONVENIO DE
 SUMINISTRO DE AGUA POTABLE PARA ABASTECER CAMIONES ALJIBES CONTRATADOS
 POR LA DELEGACION PRESIDENCIAL PROV</div></td><td>DELEGACIÓN PRESIDENCIAL PROVINCIAL DE CHOAPA<div class="region">Región de Coquimbo </div></td><td class="col-fecha">🟡 7 días</td><td class="col-fecha">2026-05-29</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=4552-1-LE26" target="_blank" class="cod-link">4552-1-LE26</a></td><td class="col-nom">Servicio aseo y mant. ofic Seremi Agric.Magallanes<div class="desc">Contar con un servicio de aseo integral que permita mantener en perfecto estado de presentación las dependencias de la S</div></td><td>SUBSECRETARIA DEL MINISTERIO DE AGRICULT<div class="region">Región de Magallanes y de la Antártica</div></td><td class="col-fecha">🟡 7 días</td><td class="col-fecha">2026-05-29</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1732-2-LE26" target="_blank" class="cod-link">1732-2-LE26</a></td><td class="col-nom">LE-4862 SERV. OBRAS MENORES OFICINAS SII RANCAGUA<div class="desc">El SII requiere contratar servicios de: obras menores, mantenimiento y reparaciones, de remodelación, habilitación de of</div></td><td>SERVICIO DE IMPUESTOS INTERNOS DIRECCION<div class="region">Región del Libertador General Bernardo O´Higgins</div></td><td class="col-fecha">🟡 7 días</td><td class="col-fecha">2026-05-29</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1501-3-LE26" target="_blank" class="cod-link">1501-3-LE26</a></td><td class="col-nom">SERV. DE LOGÍSTICA Y APOYO PARA TALLERES SSR 2026<div class="desc">SERVICIO DE LOGÍSTICA Y APOYO PARA TALLERES SSR 2026 REGIÓN DE ANTOFAGASTA</div></td><td>MINISTERIO DE OBRAS PUBLICAS DIREC CION GRAL DE OO PP DCYF<div class="region">Región de Antofagasta </div></td><td class="col-fecha">🟡 7 días</td><td class="col-fecha">2026-05-29</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=739-5-LE26" target="_blank" class="cod-link">739-5-LE26</a></td><td class="col-nom">PROFESIONAL DE RIEGO PARA AGENCIA DE ÁREA LA CALER<div class="desc">APRUEBA BASES DE LICITACIÓN PÚBLICA PARA LA CONTRATACIÓN DE SERVICIO “PROFESIONAL DE APOYO PARA LA COMPLEMENTACION EN LA</div></td><td>INSTITUTO DE DESARROLLO AGROPECUARIO<div class="region">Región de Valparaíso </div></td><td class="col-fecha">🟡 7 días</td><td class="col-fecha">2026-05-29</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=818-7-O126" target="_blank" class="cod-link">818-7-O126</a></td><td class="col-nom">Conservacion Chorrillo La Paloma, Comuna de Natales, 2026<div class="desc">El objetivo del contrato consiste en el encauzamiento de 1200 metros lineales de cauce correspondientes a Chorrillo la P</div></td><td>MINISTERIO DE OBRAS PUBLICAS DIREC CION GRAL DE OO PP DCYF<div class="region">Región de Magallanes y de la Antártica</div></td><td class="col-fecha">🟡 7 días</td><td class="col-fecha">2026-05-29</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=5661-24-LP26" target="_blank" class="cod-link">5661-24-LP26</a></td><td class="col-nom">2DO.LLA SER.DE ORGANIZACIÓN TALLERES 2026 LOS RÍOS<div class="desc">REVOCA LICITACIÓN PÚBLICA POR “SERVICIO DE ORGANIZACIÓN DE TALLERES PARA DIRIGENTES Y OPERADORES SERVICIOS SANITARIOS RU</div></td><td>MINISTERIO DE OBRAS PUBLICAS DIREC CION GRAL DE OO PP DCYF<div class="region">Región de Los Ríos</div></td><td class="col-fecha">🟡 7 días</td><td class="col-fecha">2026-05-29</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1725-110-LP26" target="_blank" class="cod-link">1725-110-LP26</a></td><td class="col-nom">CO-DISEÑO IMPLEMENTACIÓN Y ASESORÍA CECREA<div class="desc">SERVICIO DE CO-DISEÑO, IMPLEMENTACIÓN Y ASESORÍA PARA PROYECTO DE BIENESTAR INTEGRAL COMUNITARIO CECREA</div></td><td>SUBSECRETARÍA DE LAS CULTURAS Y LAS ARTES<div class="region">Región de Valparaíso </div></td><td class="col-fecha">🟡 7 días</td><td class="col-fecha">2026-05-29</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=4464-2-LP26" target="_blank" class="cod-link">4464-2-LP26</a></td><td class="col-nom">SERVICIO MANTENIMIENTO DE PLANTAS DE TRATAMIENTO DE AGUA<div class="desc">El Hospital San Juan de Dios de Curicó necesita licitar un contrato por el Servicio de Mantenimiento a las  plnasta de T</div></td><td>SERVICIO DE SALUD DEL MAULE HOSPITAL DE CURICO<div class="region">Región del Maule </div></td><td class="col-fecha">🟡 7 días</td><td class="col-fecha">2026-05-29</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1134384-3-LR26" target="_blank" class="cod-link">1134384-3-LR26</a></td><td class="col-nom">Servicio de mantención aseo riego y ornato de parques plazas y áreas verdes en San Pedro de Atacama<div class="desc">La Municipalidad de San Pedro de Atacama invita a participar en el proceso de contratación para el servicio denominado “</div></td><td>I MUNICIPALIDAD DE SAN PEDRO DE ATACAMA<div class="region">Región de Antofagasta </div></td><td class="col-fecha">🟡 7 días</td><td class="col-fecha">2026-05-29</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=5523-1-LR26" target="_blank" class="cod-link">5523-1-LR26</a></td><td class="col-nom">Asesoría campana publicitaria Centro NIC CHILE.<div class="desc">Contratacion de los servicios de asesoría estratégica y creativa para campanas de marketing y publicidad en medios digit</div></td><td>UNIVERSIDAD DE CHILE<div class="region">Región Metropolitana de Santiago</div></td><td class="col-fecha">🟡 7 días</td><td class="col-fecha">2026-05-29</td></tr><tr><td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=975-21-LR26" target="_blank" class="cod-link">975-21-LR26</a></td><td class="col-nom">LICITACIÓN SOFTWARE DOH - SSSR<div class="desc">Que, la Dirección de Obras Hidráulicas y la Subdirección de Servicios Sanitarios Rurales requieren contar y suscribir li</div></td><td>MINISTERIO DE OBRAS PUBLICAS DIREC CION GRAL DE OO PP DCYF<div class="region">Región Metropolitana de Santiago</div></td><td class="col-fecha">🟡 7 días</td><td class="col-fecha">2026-05-29</td></tr></tbody>
-    </table>
+      </table>
+    </div>
   </div>
 </div>
 <div class="footer">Arrebol Ingeniería y Gestión del Agua SpA &nbsp;·&nbsp; Datos: api.mercadopublico.cl</div>

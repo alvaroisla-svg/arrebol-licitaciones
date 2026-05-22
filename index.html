@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Inter','Segoe UI',Arial,sans-serif;background:#F0F4F8;color:#2C2C2A;font-size:13px}
+body{font-family:'Inter','Segoe UI',Arial,sans-serif;background:#F0F4F8;color:#2C2C2A;font-size:14px}
 .header{background:#0F2942;color:#fff;padding:24px 40px 20px}
 .header .brand{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:7px;font-weight:500}
 .header h1{font-size:20px;font-weight:600;margin-bottom:3px;letter-spacing:-.3px}
@@ -48,8 +48,8 @@ td{padding:9px 11px;vertical-align:top;border-bottom:1px solid #F3F3F1}
 .cod-link{color:#185FA5;text-decoration:none;font-weight:600;font-size:11px}
 .cod-link:hover{text-decoration:underline}
 .col-nom{max-width:300px;line-height:1.5}
-.desc{font-size:10px;color:#AAA;margin-top:3px;line-height:1.35}
-.region{font-size:10px;color:#AAA;margin-top:2px}
+.desc{font-size:11px;color:#AAA;margin-top:3px;line-height:1.35}
+.region{font-size:11px;color:#AAA;margin-top:2px}
 .col-tipo{max-width:140px;font-size:11px;color:#777}
 .col-monto{white-space:nowrap;font-size:11px}
 .col-fecha{white-space:nowrap;font-size:11px;text-align:center}
@@ -58,8 +58,8 @@ td{padding:9px 11px;vertical-align:top;border-bottom:1px solid #F3F3F1}
 .badge-adj{background:#DBEAFE;color:#1E40AF}
 .badge-oth{background:#FEF3C7;color:#92400E}
 .badge-priv{background:#FEF3C7;color:#92400E}
-.tag-org{background:#D0ECE7;color:#065F46;border:1px solid #A9DFBF;border-radius:4px;padding:2px 6px;font-size:10px;font-weight:600;margin:2px 2px 0 0;display:inline-block}
-.tag-pk{background:#F4F4F2;color:#777;border:1px solid #E4E4E0;border-radius:4px;padding:2px 6px;font-size:10px;margin:2px 2px 0 0;display:inline-block}
+.tag-org{background:#D0ECE7;color:#065F46;border:1px solid #A9DFBF;border-radius:4px;padding:2px 6px;font-size:11px;font-weight:600;margin:2px 2px 0 0;display:inline-block}
+.tag-pk{background:#F4F4F2;color:#777;border:1px solid #E4E4E0;border-radius:4px;padding:2px 6px;font-size:11px;margin:2px 2px 0 0;display:inline-block}
 @keyframes pulso{0%,100%{opacity:1}50%{opacity:.4}}
 .badge-nueva{display:inline-block;margin-top:5px;background:#B7560A;color:rgba(255,255,255,.9);border:none;font-size:9px;font-weight:600;padding:3px 9px;border-radius:20px;letter-spacing:.8px;text-transform:uppercase;animation:pulso 1.4s ease-in-out infinite}
 .footer{text-align:center;padding:16px;color:#bbb;font-size:11px}
@@ -76,14 +76,14 @@ td{padding:9px 11px;vertical-align:top;border-bottom:1px solid #F3F3F1}
 <div class="header">
   <div class="brand">Arrebol Ingeniería y Gestión del Agua SpA</div>
   <h1>Monitor de Licitaciones — Mercado Público</h1>
-  <p>Generado el 22/05/2026 a las 09:59
-     &nbsp;·&nbsp; Acumulado: 207 licitaciones vigentes
-     &nbsp;·&nbsp; <span class="nuevas-badge">6 nuevas hoy</span></p>
+  <p>Generado el 22/05/2026 a las 10:08
+     &nbsp;·&nbsp; Acumulado: 208 licitaciones vigentes
+     &nbsp;·&nbsp; <span class="nuevas-badge">7 nuevas hoy</span></p>
 </div>
 <div class="container">
   <div class="kpi-row">
-    <div class="kpi-total"><div class="kpi-number">207</div><div class="kpi-label">Total acumulado</div></div>
-    <div class="kpi-nueva"><div class="kpi-number">6</div><div class="kpi-label">Nuevas hoy</div></div>
+    <div class="kpi-total"><div class="kpi-number">208</div><div class="kpi-label">Total acumulado</div></div>
+    <div class="kpi-nueva"><div class="kpi-number">7</div><div class="kpi-label">Nuevas hoy</div></div>
     <div class="kpi-card"><div class="kpi-number" style="color:#0F2942">11</div><div class="kpi-label">DGA</div></div><div class="kpi-card"><div class="kpi-number" style="color:#0F2942">27</div><div class="kpi-label">DOH</div></div><div class="kpi-card"><div class="kpi-number" style="color:#0F2942">2</div><div class="kpi-label">CNR</div></div><div class="kpi-card"><div class="kpi-number" style="color:#0F2942">25</div><div class="kpi-label">CONADI</div></div><div class="kpi-card"><div class="kpi-number" style="color:#0F2942">10</div><div class="kpi-label">INDAP</div></div>
   </div>
   <div class="filtros">
@@ -112,7 +112,7 @@ td{padding:9px 11px;vertical-align:top;border-bottom:1px solid #F3F3F1}
     <button class="btn-limpiar" onclick="limpiar()">✕ Limpiar</button>
   </div>
   <div class="tabla-wrap">
-    <div class="count-bar">Mostrando <span id="cv">207</span> de 207 licitaciones</div>
+    <div class="count-bar">Mostrando <span id="cv">208</span> de 208 licitaciones</div>
     <table id="tbl">
       <thead><tr>
         <th onclick="sort(0)">Código</th>
@@ -209,6 +209,19 @@ CALIDAD AMBIE…</div></td>
           <td class="col-fecha">2026-05-22</td>
           <td class="col-fecha">2026-06-02</td>
           <td></td>
+        </tr>
+        <tr class="dr" data-estado="Publicada" data-txt="suministro de agua destilada para el hph  hospital provincial   del huasco msr fernando ariztia ruiz 5349-48-l126 región de atacama " data-palabras="agua" data-nueva="Sí" data-origen="palabra_clave" data-pubpriv="Pública">
+          <td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=5349-48-L126" target="_blank" class="cod-link">5349-48-L126</a><div class="badge-nueva">NUEVA</div></td>
+          <td class="col-nom">SUMINISTRO DE AGUA DESTILADA PARA EL HPH <div class="desc">SUMINISTRO DE AGUA DESTILADA PARA EL HPH, SEGUN EETT </div></td>
+          <td>HOSPITAL PROVINCIAL   DEL HUASCO MSR FERNANDO ARIZTIA RUIZ<div class="region">Región de Atacama </div></td>
+          <td><span class="badge badge-pub">Publicada</span></td>
+          <td class="col-tipo">Pública < 100 UTM</td>
+          <td><span class="badge badge-pub">Pública</span></td>
+          <td class="col-monto">1.350.000 CLP</td>
+          <td class="col-fecha">11</td>
+          <td class="col-fecha">2026-05-22</td>
+          <td class="col-fecha">2026-06-02</td>
+          <td><span class="tag-pk">agua</span></td>
         </tr>
         <tr class="dr" data-estado="Publicada" data-txt="servicios profesionales para la elaboración y tramitación de planes de manejo de bosque nativo en predios de pequeños, medianos y otros propietarios en las provincias de cachapoal, colchagua, corp nacional forestal 1035-9-l126 región del libertador general bernardo o´higgins" data-palabras="agua" data-nueva="No" data-origen="palabra_clave" data-pubpriv="Pública">
           <td><a href="https://www.mercadopublico.cl/Procurement/Modules/RFB/DetailsAcquisition.aspx?idLicitacion=1035-9-L126" target="_blank" class="cod-link">1035-9-L126</a></td>

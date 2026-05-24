@@ -95,7 +95,7 @@ td{padding:9px 11px;vertical-align:top;border-bottom:1px solid #F3F3F1}
 <div class="header">
   <div class="brand">Arrebol Ingeniería y Gestión del Agua SpA</div>
   <h1>Monitor de Licitaciones — Mercado Público</h1>
-  <p>Generado el 24/05/2026 a las 12:25 &nbsp;·&nbsp; Acumulado: 244 licitaciones vigentes &nbsp;·&nbsp; <span class="nuevas-badge">0 nuevas hoy</span></p>
+  <p>Generado el 24/05/2026 a las 13:00 &nbsp;·&nbsp; Acumulado: 244 licitaciones vigentes &nbsp;·&nbsp; <span class="nuevas-badge">0 nuevas hoy</span></p>
 </div>
 
 <div id="tab-licitaciones" class="tab-panel visible">
@@ -3629,14 +3629,8 @@ function toggleFiltro(btn) {
   const tipo = btn.dataset.tipo;
   const val = btn.dataset.val;
   const set = tipo === 'pk' ? activosPK : activosOrg;
-
-  if (set.has(val)) {
-    set.delete(val);
-    btn.classList.remove('activo');
-  } else {
-    set.add(val);
-    btn.classList.add('activo');
-  }
+  if (set.has(val)) { set.delete(val); btn.classList.remove('activo'); }
+  else { set.add(val); btn.classList.add('activo'); }
   filtrar();
 }
 
@@ -3645,24 +3639,17 @@ function filtrar() {
   const pp = document.getElementById('fpp').value;
   const nv = document.getElementById('fnueva').value;
   let visibles = 0;
-
   document.querySelectorAll('.dr').forEach(tr => {
     const palabras = (tr.dataset.palabras || '').toLowerCase();
     const origen = (tr.dataset.origen || '').toLowerCase();
-
     const okPK = activosPK.size === 0 || [...activosPK].some(pk => palabras.includes(pk.toLowerCase()));
     const okOrg = activosOrg.size === 0 || [...activosOrg].some(org => origen.includes(org.toLowerCase()));
-
-    const ok = (!txt || tr.dataset.txt.includes(txt))
-      && okPK
-      && okOrg
+    const ok = (!txt || tr.dataset.txt.includes(txt)) && okPK && okOrg
       && (!pp || (tr.dataset.pubpriv || '') === pp)
       && (!nv || tr.dataset.nueva === nv);
-
     tr.classList.toggle('hidden', !ok);
     if (ok) visibles++;
   });
-
   document.getElementById('cv').textContent = visibles;
 }
 
@@ -3670,8 +3657,7 @@ function limpiar() {
   document.getElementById('buscar').value = '';
   document.getElementById('fpp').value = '';
   document.getElementById('fnueva').value = '';
-  activosPK.clear();
-  activosOrg.clear();
+  activosPK.clear(); activosOrg.clear();
   document.querySelectorAll('.btn-filtro').forEach(btn => btn.classList.remove('activo'));
   filtrar();
 }
@@ -3682,13 +3668,11 @@ function sortCol(index) {
   const rows = [...body.querySelectorAll('tr.dr')];
   const direction = sortState[index] === 'asc' ? -1 : 1;
   sortState[index] = direction === 1 ? 'asc' : 'desc';
-
   rows.sort((a, b) => {
     const av = a.cells[index]?.textContent.trim() || '';
     const bv = b.cells[index]?.textContent.trim() || '';
     return direction * av.localeCompare(bv, 'es', { numeric: true });
   });
-
   rows.forEach(row => body.appendChild(row));
 }
 

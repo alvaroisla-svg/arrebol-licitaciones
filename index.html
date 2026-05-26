@@ -38,6 +38,8 @@ body{font-family:'Inter','Segoe UI',Arial,sans-serif;background:#F0F4F8;color:#2
 .btn-filtro{background:#F4F4F2;border:1px solid #E2E8E0;border-radius:20px;padding:4px 12px;font-size:11px;font-weight:500;color:#555;cursor:pointer;font-family:inherit;transition:background .15s,color .15s,border-color .15s;white-space:nowrap}
 .btn-filtro:hover{background:#E2E8F0;border-color:#CBD5E1;color:#0F2942}
 .btn-filtro.activo{background:#0F2942;border-color:#0F2942;color:#fff;font-weight:600}
+.btn-filtro-dest.activo{background:#4CAF73!important;border-color:#4CAF73!important;color:#fff!important}
+.btn-filtro-nodest.activo{background:#6B7280!important;border-color:#6B7280!important;color:#fff!important}
 .tabla-wrap{background:#fff;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:auto;max-height:calc(32px + 36px + 16 * 44px)}
 .count-bar{font-size:11px;color:#888;padding:8px 14px;border-bottom:1px solid #F0F0EE;position:sticky;top:0;background:#fff;z-index:5;height:32px;font-weight:400}
 #cv{font-weight:600;color:#0F2942}
@@ -103,7 +105,7 @@ tbody tr[data-destacada="Sí"]:hover{background:#E8F5EA!important}
 <div class="header">
   <div class="brand">Arrebol Ingeniería y Gestión del Agua SpA</div>
   <h1>Monitor de Licitaciones — Mercado Público</h1>
-  <p>Generado el 26/05/2026 a las 16:11 &nbsp;·&nbsp; Acumulado: 59 licitaciones vigentes &nbsp;·&nbsp; <span class="nuevas-badge">6 nuevas hoy</span></p>
+  <p>Generado el 26/05/2026 a las 16:16 &nbsp;·&nbsp; Acumulado: 59 licitaciones vigentes &nbsp;·&nbsp; <span class="nuevas-badge">6 nuevas hoy</span></p>
 </div>
 
 <div id="tab-licitaciones" class="tab-panel visible">
@@ -129,7 +131,9 @@ tbody tr[data-destacada="Sí"]:hover{background:#E8F5EA!important}
         <option value="Sí">Solo nuevas</option>
         <option value="No">Solo anteriores</option>
       </select>
-      
+      <label>Destacadas:</label>
+      <button class="btn-filtro btn-filtro-dest" id="fbtn-dest-si" data-dest="Sí" onclick="toggleFiltroDest(this)">⭐ Destacadas</button>
+      <button class="btn-filtro btn-filtro-nodest" id="fbtn-dest-no" data-dest="No" onclick="toggleFiltroDest(this)">Sin destacar</button>
       <button class="btn-limpiar" onclick="limpiar()">✕ Limpiar</button>
     </div>
     <div class="filtros-fila">
@@ -268,6 +272,7 @@ Y LEVANTAMIENTO DE ANTECEDENTES PARA LA ACTUALIZACIÓN</div></td><td>SUBSECRETAR
 <script>
 const activosPK = new Set();
 const activosOrg = new Set();
+let filtroDest = '';
 
 function toggleFiltro(btn) {
   const tipo = btn.dataset.tipo;
@@ -278,11 +283,23 @@ function toggleFiltro(btn) {
   filtrar();
 }
 
+function toggleFiltroDest(btn) {
+  const val = btn.dataset.dest;
+  if (filtroDest === val) {
+    filtroDest = '';
+    btn.classList.remove('activo');
+  } else {
+    filtroDest = val;
+    document.querySelectorAll('[data-dest]').forEach(b => b.classList.remove('activo'));
+    btn.classList.add('activo');
+  }
+  filtrar();
+}
+
 function filtrar() {
   const txt = document.getElementById('buscar').value.toLowerCase();
   const pp = document.getElementById('fpp').value;
   const nv = document.getElementById('fnueva').value;
-  const fdest = document.getElementById('fdest') ? document.getElementById('fdest').value : '';
   let visibles = 0;
   document.querySelectorAll('.dr').forEach(tr => {
     const palabras = (tr.dataset.palabras || '').toLowerCase();
@@ -292,7 +309,7 @@ function filtrar() {
     const ok = (!txt || tr.dataset.txt.includes(txt)) && okPK && okOrg
       && (!pp || (tr.dataset.pubpriv || '') === pp)
       && (!nv || tr.dataset.nueva === nv)
-      && (!fdest || tr.dataset.destacada === fdest);
+      && (!filtroDest || tr.dataset.destacada === filtroDest);
     tr.classList.toggle('hidden', !ok);
     if (ok) visibles++;
   });
@@ -303,7 +320,8 @@ function limpiar() {
   document.getElementById('buscar').value = '';
   document.getElementById('fpp').value = '';
   document.getElementById('fnueva').value = '';
-  if (document.getElementById('fdest')) document.getElementById('fdest').value = '';
+  filtroDest = '';
+  document.querySelectorAll('[data-dest]').forEach(b => b.classList.remove('activo'));
   activosPK.clear();
   activosOrg.clear();
   document.querySelectorAll('.btn-filtro').forEach(btn => btn.classList.remove('activo'));

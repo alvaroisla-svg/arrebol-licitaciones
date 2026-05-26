@@ -40,6 +40,8 @@ body{font-family:'Inter','Segoe UI',Arial,sans-serif;background:#F0F4F8;color:#2
 .btn-filtro.activo{background:#0F2942;border-color:#0F2942;color:#fff;font-weight:600}
 .btn-filtro-dest.activo{background:#4CAF73!important;border-color:#4CAF73!important;color:#fff!important}
 .btn-filtro-nodest.activo{background:#6B7280!important;border-color:#6B7280!important;color:#fff!important}
+.btn-filtro-nueva.activo{background:#C0392B!important;border-color:#C0392B!important;color:#fff!important}
+.btn-filtro-anterior.activo{background:#6B7280!important;border-color:#6B7280!important;color:#fff!important}
 .tabla-wrap{background:#fff;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:auto;max-height:calc(32px + 36px + 16 * 44px)}
 .count-bar{font-size:11px;color:#888;padding:8px 14px;border-bottom:1px solid #F0F0EE;position:sticky;top:0;background:#fff;z-index:5;height:32px;font-weight:400}
 #cv{font-weight:600;color:#0F2942}
@@ -111,7 +113,7 @@ tbody tr[data-destacada="Sí"]:hover{background:#E8F5EA!important}
 <div class="header">
   <div class="brand">Arrebol Ingeniería y Gestión del Agua SpA</div>
   <h1>Monitor de Licitaciones — Mercado Público</h1>
-  <p>Generado el 26/05/2026 a las 16:29 &nbsp;·&nbsp; Acumulado: 61 licitaciones vigentes &nbsp;·&nbsp; <span class="nuevas-badge">8 nuevas hoy</span></p>
+  <p>Generado el 26/05/2026 a las 16:55 &nbsp;·&nbsp; Acumulado: 61 licitaciones vigentes &nbsp;·&nbsp; <span class="nuevas-badge">8 nuevas hoy</span></p>
 </div>
 
 <div id="tab-licitaciones" class="tab-panel visible">
@@ -133,11 +135,8 @@ tbody tr[data-destacada="Sí"]:hover{background:#E8F5EA!important}
         <option value="Privada">Privada</option>
       </select>
       <label>Mostrar:</label>
-      <select id="fnueva" onchange="filtrar()">
-        <option value="">Todas</option>
-        <option value="Sí">Solo nuevas</option>
-        <option value="No">Solo anteriores</option>
-      </select>
+      <button class="btn-filtro btn-filtro-nueva" id="fbtn-nueva-si" data-nueva="Sí" onclick="toggleFiltroNueva(this)">🆕 Nuevas</button>
+      <button class="btn-filtro btn-filtro-anterior" id="fbtn-nueva-no" data-nueva="No" onclick="toggleFiltroNueva(this)">Anteriores</button>
       <label>Destacadas:</label>
       <button class="btn-filtro btn-filtro-dest" id="fbtn-dest-si" data-dest="Sí" onclick="toggleFiltroDest(this)">⭐ Destacadas</button>
       <button class="btn-filtro btn-filtro-nodest" id="fbtn-dest-no" data-dest="No" onclick="toggleFiltroDest(this)">Sin destacar</button>
@@ -297,6 +296,7 @@ Y LEVANTAMIENTO DE ANTECEDENTES PARA LA ACTUALIZACIÓN</div></td><td>SUBSECRETAR
 const activosPK = new Set();
 const activosOrg = new Set();
 let filtroDest = '';
+let filtroNueva = '';
 
 function toggleFiltro(btn) {
   const tipo = btn.dataset.tipo;
@@ -320,10 +320,22 @@ function toggleFiltroDest(btn) {
   filtrar();
 }
 
+function toggleFiltroNueva(btn) {
+  const val = btn.dataset.nueva;
+  if (filtroNueva === val) {
+    filtroNueva = '';
+    btn.classList.remove('activo');
+  } else {
+    filtroNueva = val;
+    document.querySelectorAll('[data-nueva-btn]').forEach(b => b.classList.remove('activo'));
+    btn.classList.add('activo');
+  }
+  filtrar();
+}
+
 function filtrar() {
   const txt = document.getElementById('buscar').value.toLowerCase();
   const pp = document.getElementById('fpp').value;
-  const nv = document.getElementById('fnueva').value;
   let visibles = 0;
   document.querySelectorAll('.dr').forEach(tr => {
     const palabras = (tr.dataset.palabras || '').toLowerCase();
@@ -332,7 +344,7 @@ function filtrar() {
     const okOrg = activosOrg.size === 0 || [...activosOrg].some(org => origen.includes(org.toLowerCase()));
     const ok = (!txt || tr.dataset.txt.includes(txt)) && okPK && okOrg
       && (!pp || (tr.dataset.pubpriv || '') === pp)
-      && (!nv || tr.dataset.nueva === nv)
+      && (!filtroNueva || tr.dataset.nueva === filtroNueva)
       && (!filtroDest || tr.dataset.destacada === filtroDest);
     tr.classList.toggle('hidden', !ok);
     if (ok) visibles++;
@@ -343,9 +355,9 @@ function filtrar() {
 function limpiar() {
   document.getElementById('buscar').value = '';
   document.getElementById('fpp').value = '';
-  document.getElementById('fnueva').value = '';
   filtroDest = '';
-  document.querySelectorAll('[data-dest]').forEach(b => b.classList.remove('activo'));
+  filtroNueva = '';
+  document.querySelectorAll('[data-dest],[data-nueva]').forEach(b => b.classList.remove('activo'));
   activosPK.clear();
   activosOrg.clear();
   document.querySelectorAll('.btn-filtro').forEach(btn => btn.classList.remove('activo'));
